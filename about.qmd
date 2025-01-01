@@ -1,0 +1,83 @@
+---
+title: "About"
+about:
+  template: jolla
+  image: profile.png
+  links:
+    - icon: discord
+      text: discord
+      href: https://twitter.com
+    - icon: youtube
+      text: Youtube
+      href: https://github.com
+---
+
+## About the Site
+
+The purpose of this site is to provide access to information I have gathered over the years concerning the mechanical trades, Plumbing, HVAC, electrical, and other various bits of information. I do my best to focus on novel ideas and hard to find information. I also try to maintain a list of particularly good resources for information that have helped me over the years.
+
+The idea of "thinking mechanically" is to think about how things work and how to approach systems with a solid base of understanding. Exemplified in ideas such as my lesson on "There's no Suct Thing as Cold." It's, obviously, not a new concept, but one that I think often gets missed in one way or another in many teaching and course programs. "Thinking mechanically" is a skill that took me a very long time to build, where for some people it comes naturally. But it involves everything from understanding the physics of the environment your manipulating to how fast you drill a hole into metal or wood and why, to how fluid movement works in pipes and ducts, etc.
+
+My goal is to provide the resources to build this foundation for others. So that, if you come across new problems it doesn't feel like you're in the dark as to where to start. If you can look at the system, understand how it works, you can easily picture what is happening and how to approach solving whatever you're working on.
+
+Many textbooks try to cover the "fundamentals" of many aspects of the trade, but do so in a way where instead of explaining the basics of, for example, heat loss and how that affects occupant comfort and load calculations and how to identify issues, instead tend to focus on conduction, convection, radiation, and just the fact these types of heat transfer exist.
+
+I have taught in programs where the building of knowledge in different areas of the trade happen almost schizophrenically instead of a slow building of one idea after another. This is why, in my teaching career, I always preferred teaching in an environment where I could create and direct my own coursework instead of utilizing boiler plate solutions. Any boilerplate is flawed by its nature. While some subjects can be moved around as necessary, many things when learning the trades have to be built upon earlier ideas, very carefully, if a comprehensive understanding is going to have a good foundation.
+
+## About Me:
+
+My name is Chris Freeman. I have been working in the trades since I was 16 years old, and started full time not long after I turned 17, after getting my GED in the 11th Grade. Below is a short list of the things I have done as part of my career in the mechanical trades. I also have a complete version of my resume available, [here](resumenoco.html). That provides a little more detail on the key points, below, if int
+
+I post this information on the site simply so my background can be understood. Because, as you will see, my experience spans a wide area of HVAC and Plumbing, and I have been involved in so may different areas over my career, I have a very good foundation on lots of aspects, but not a lot of specific knowledge in some things. A good example would be, one of the guys I learned HVAC from is capable of telling you how to diagnose specific systems from specific model years for residential systems. That is not my area of expertise. My area of expertise is providing insights and resources on how to procure the best information in a short period of time to solve a wide range of problems. There are very things I know immediately (that aren't core ideas) but I can find specific information on things very quickly. Or tell you the best way of doing estimating, or VRF, or what to look out for, etc. Most of the time, if I am troubleshooting it, I get the necessary manuals in my hand in just a couple minutes and start from there. And that is the kind of resourcefulness I want to spread through the industry.
+
+With that rambling complete (I am not known for brevity, I am working on that) here is my experience in the trades.
+
+### Job Coordination & Estimation
+
+PDF creation and overlay, submittal documents, O&M manual creation, design coordination with other trades, engineers, architects, and building owners. Development of coordination drawings. Assistance and consulting for commercial facilities owners on self-performing tenant and core building improvement projects. Created my own estimating tools using Bluebeam. Have created exactly to scale tools in Bluebeam on multiple projects to measure and cut piping for prefabrication before installation with very good accuracy.
+
+### Plumbing
+
+Sanitary waste and vent, storm piping, gas, chemical drainage, multi horsepower storm and sewage pump controls and installation, gas piping systems, domestic and non potable water systems. Drain cleaning with K50, K60, sewer jetter machine, hot water jetter machine, sewer cameras, and locators. Creation and submittal of original residential and commercial design documents for plan review. Coordination with design engineers on changes for county plan review comment resolutions. Water filtration systems, well and well piping systems.
+
+### Fuel Gas Systems
+
+Natural Gas and LP, Design, value engineering, custom regulator selection, main regulator repairs, verification of existing system meter and regulator capacities, overcoming design challenges in areas with very low gas pressures (Bethesda, DC), troubleshooting intermittent gas appliance failures, LP systems selection and design, creation and submittal of original residential and commercial design documents for plan review
+
+### Mechanical and HVAC
+
+VAV systems, rooftop units, design of controls systems for boilers, interlock kitchen equipment, design basic electrical systems, creation and submittal of original residential and commercial design documents for plan review, design grease waste systems, installation, design, and commissioning of VRV/VRF systems, unitary split systems, design, installation and commissioning of mini-split systems, grease duct installation, layout and coordination of mechanical systems, full mechanical projects, cooling tower piping design and installation, VFD installation for HVAC systems, zoning systems, clothes dryer venting, commercial refrigeration controls and piping, fire dampers, steam and hydronic piping, smoke damper commissioning, fire damper commissioning, quality control, walk in cooler fabrication
+
+### Ductwork
+
+Design, verification of SMACNA compliance, redesign, Manual D calculations. Airflow measurements using hot wire anemometers, vane anemometers, pitot tubes and manometers, static pressure probes and manufacturers data. Sketching commercial and residential installations for procurement, fire dampers, fire and smoke dampers, ceiling radiation dampers, balancing, factory fabricated stainless, exhaust systems design and retrofits, fan selection for commercial kitchen exhaust, custom fitting and fire damper fabrication, single and double wall flue design, grease duct layout and fitting, light testing, stainless, aluminum, galvanized, and black iron.
+
+### Software
+
+Microsoft Office (Excel, MS Word, Outlook, Etc), Planswift, Bluebeam, Wrightsoft Right-Suite Universal, Solidyne, KMC, Siemens, Computrols, iVu, Tracer
+
+### Ductwork
+
+Design, verification of SMACNA compliance, redesign, Manual D calculations. Airflow measurements using hot wire anemometers, vane anemometers, pitot tubes and manometers, static pressure probes and manufacturers data. Sketching commercial and residential installations for procurement, fire dampers, fire and smoke dampers, ceiling radiation dampers, balancing, factory fabricated stainless, exhaust systems design and retrofits, fan selection for commercial kitchen exhaust, custom fitting and fire damper fabrication, single and double wall flue design, grease duct layout and fitting, light testing, stainless, aluminum, galvanized, and black iron.
+
+### Fire Sprinkler Systems
+
+Repair, partial replacement, backflow preventer testing, underground sprinkler main installation in most local jurisdictions, repair compressed air dry systems, fire panel troubleshooting, electrical interlocking of kitchen hoods for code compliance
+
+### Electrical
+
+Main panel replacements, troubleshooting, verification of code compliance of different wire types, small facilities design (stamped by others), kitchen hood interlocks in restaurant facilities, repairs in breaker panels, disconnects, equipment, transformers, appliances, appurtenances, buck/boost calculations.
+
+## Non Trade Related Skills
+
+Audio Production using Reaper, Cubase, Native Instruments, Amplitube, and many other audio software solutions. Former (locally touring) bass player for Adwela and the Uprising (wrote, in conjunction with my cousin most of the bass and later featured by another player on the road less traveled). Avergae bass player, mediocre guitar and keys player, extensive practice is sound design and audio mixing. Helped in a local recording studio for a couple years recording other local bands.
+
+Bass and guitar modifications. Rebuilt many guitars doing basic setup work and extensive electronic work. My most extensive project being a complete overhaul of of a Bass VI. Have created many very complicated switching systems which greatly assisted in my understanding of manipulating controls in HVAC and other trades.
+
+Some electronics hobby experience in modifying and building guitar pedals and many failed attempts at building other devices. I have had less success in this area but have learned a lot concerning the inner workings of control/circuit boards, transistors, diodes, thermistors, resistors, capacitors, integrated circuits, etc.
+
+Limited but growing experience with HTML, vanilla javascript, CSS, LaTeX, Linux, Quarto, VS Code, markdown, OBS Studio, Davinci Resolve, etc. Built my first websites as a teenager but did not pick up the hobby again until recently. Early coding experience helped in picking the hobby back up.
+
+Have studied woodworking, machining, welding, and other fundamentals....
+
+That's most of the important stuff....

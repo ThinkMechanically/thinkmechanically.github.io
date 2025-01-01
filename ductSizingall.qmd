@@ -1,0 +1,856 @@
+---
+title: "Trunk Duct Sizing"
+---
+
+## System Information
+
+------------------------------------------------------------------------
+
+### Air Conditioner Information
+
+```{ojs}
+viewof tonsAcSel = Inputs.radio([1.5, 2, 2.5, 3, 3.5, 4, 5], {label: "Select Tons", value: 3})
+
+```
+
+```{ojs}
+viewof CfmPerTonSel = Inputs.radio([325, 350, 375, 400, 425, 450], {
+  label: "Select CFM per Ton", 
+  value: 350
+});
+```
+
+### Furnace Information
+
+::::: grid
+::: g-col-6
+```{ojs}
+viewof furn = Inputs.toggle({label: "Furnace"})
+
+```
+
+:::
+
+::: g-col-6
+*Please check checkbox above if furnace is used for heating or auxiliary heating*
+:::
+:::::
+
+```{ojs}
+furnTrue = 
+{
+  if(furn == true) { 
+    return yesfurn
+  } else { 
+    return nofurn
+  }
+};
+```
+
+::::: grid
+::: g-col-6
+```{ojs}
+viewof furnInBTU = Inputs.range([20000, 200000],{
+  label: "System BTU/h",
+  value: 80000,
+  step: 1000
+});
+```
+:::
+
+::: g-col-6
+```{ojs}
+viewof furnEff = Inputs.number([.60, 1.00],{
+  label: "System Efficiency",
+  value: .80,
+  step: .01,
+  style: "percent",
+  width: 80
+});
+```
+:::
+:::::
+
+```{ojs}
+viewof furnMaxDelta = Inputs.radio([30, 35, 40, 45, 50, 55, 60, 65], {
+  label: "Furnace Max Temperature Rise", 
+  value: 50
+});
+```
+
+
+```{ojs}
+md`*Note: ${furnTrue}*`;
+```
+
+```{ojs}
+yesfurn = "Gas Heating CFM will be Calculated"
+nofurn = "Gas Heating CFM will be set to Zero - Only AC CFM will be Used"
+
+```
+
+```{ojs}
+//Formulas Related to Total System and Airflow Calculations
+acCFM = tonsAcSel * CfmPerTonSel;
+nofurnCFM = 0
+minfTAc = acCFM / 2;
+minrDAc = (acCFM / 4.86);
+minsDAc = acCFM / 6.5;
+minfTAh = furnMinCFM / 2;
+minrDAh = (furnMinCFM / 4.86);
+minsDAh = furnMinCFM / 6.5;
+furnOutBTU = furnInBTU * furnEff;
+heatCFM = furnOutBTU / (1.08 * furnMaxDelta)
+pi = 3.141
+```
+
+```{ojs}
+furnMinCFM = 
+{
+  if(furn == true) { 
+    return heatCFM
+  } else { 
+    return nofurnCFM
+  }
+};
+```
+
+```{ojs}
+minSysCFM = 
+{
+  if(acCFM > furnMinCFM) { 
+    return acCFM
+  } else { 
+    return furnMinCFM
+  }
+};
+```
+
+```{ojs}
+minfTA = minSysCFM / (300 / 144);
+minfTA1 = minSysCFM / (225 / 144);
+minrDA = (minSysCFM / 4.86);
+minsDA = minSysCFM / 6.5;
+```
+
+------------------------------------------------------------------------
+
+### System Outputs
+
+#### **Minimum System CFM, Filter, and Duct Sizes**
+---
+
+```{ojs}
+md`##### Minimum CFM: ${(minSysCFM).toLocaleString(undefined, {maximumFractionDigits: 0})} CFM`;
+```
+
+```{ojs}
+md`##### Minimum 1" Filter Area: ${(minfTA1).toLocaleString(undefined, {maximumFractionDigits: 0})} sq. in.`;
+```
+
+```{ojs}
+md`##### Minimum 2"-5" Filter Area: ${(minfTA).toLocaleString(undefined, {maximumFractionDigits: 0})} sq. in.`;
+```
+
+```{ojs}
+md`##### Minimum Return Area: ${(minrDA).toLocaleString(undefined, {maximumFractionDigits: 0})} sq. in.`;
+```
+
+```{ojs}
+md`##### Minimum Supply Area: ${(minsDA).toLocaleString(undefined, {maximumFractionDigits: 0})} sq. in.`;
+```
+
+
+#### **Minimum Heating CFM, Filter, and Duct Sizes**
+---
+
+
+```{ojs}
+md`##### Furnace Efficiency: ${(furnEff).toLocaleString(undefined, {style: "percent"})}`;
+```
+
+```{ojs}
+md`##### Furnace Output Btu/h: ${(furnOutBTU).toLocaleString(undefined, {maximumFractionDigits: 0})} BTU/h`;
+```
+
+```{ojs}
+md`##### Furnace Max Delta: ${furnMaxDelta}${tex`\degree`}F ${tex`\Delta`}T`;
+```
+
+```{ojs}
+md`##### Furnace Minimum CFM: ${(furnMinCFM).toLocaleString(undefined, {maximumFractionDigits: 0})} CFM`;
+```
+
+```{ojs}
+md`##### Minimum Heating Filter Area: ${(minfTAh).toLocaleString(undefined, {maximumFractionDigits: 0})} sq. in.`;
+```
+
+```{ojs}
+md`##### Minimum Return Area: ${(minrDAh).toLocaleString(undefined, {maximumFractionDigits: 0})} sq. in.`;
+```
+
+```{ojs}
+md`##### Minimum Supply Area: ${(minsDAh).toLocaleString(undefined, {maximumFractionDigits: 0})} sq. in.`;
+```
+
+
+---
+
+#### Minimum Air Conditioner CFM, Filter, and Duct Sizes
+
+```{ojs}
+md`##### Minimum AC CFM: ${tonsAcSel * CfmPerTonSel} cfm`;
+```
+
+```{ojs}
+md`##### Minimum Cooling Filter Area: ${(minfTAc).toLocaleString(undefined, {maximumFractionDigits: 0})} sq. in.`;
+```
+
+```{ojs}
+md`##### Minimum Cooling Return Area: ${(minrDAc).toLocaleString(undefined, {maximumFractionDigits: 0})} sq. in.`;
+```
+
+```{ojs}
+md`##### Minimum Cooling Supply Area: ${(minsDAc).toLocaleString(undefined, {maximumFractionDigits: 0})} sq. in.`;
+```
+
+---
+
+## Filters
+
+```{ojs}
+viewof filterThickness = Inputs.radio([1, 2, 4, 5], {label: "Select Tons", value: 2})
+
+```
+
+### Filter Area
+
+```{ojs}
+f1A = f1W * f1H; 
+f2A = f2W * f2H; 
+f3A = f3W * f3H; 
+fT = f3A + f2A + f1A; 
+fTcfmMax = fT * 2; 
+fTcfmRec = fT * 1.5;
+fTdA = (acCFM / 2) - fT;
+fV = minSysCFM / (fT / 144)
+```
+
+:::::: grid
+::: g-col-4
+```{ojs}
+viewof f1W = Inputs.number([0, 60],{
+  label: "Filter 1 Width",
+  width: 75,
+  value: 16,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-4
+```{ojs}
+viewof f1H = Inputs.number([0, 60],{
+  label: "Filter 1 Height",
+  width: 75,
+  value: 25,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-4
+```{ojs}
+md`**Filter 1 Area ${f1A} sq in**`;
+```
+:::
+::::::
+
+:::::: grid
+::: g-col-4
+```{ojs}
+viewof f2W = Inputs.number([0, 60],{
+  label: "Filter 2 Width",
+  width: 75,
+  value: 0,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-4
+```{ojs}
+viewof f2H = Inputs.number([0, 60],{
+  label: "Filter 2 Height",
+  width: 75,
+  value: 0,
+  step: 0.5
+});
+
+```
+:::
+
+::: g-col-4
+```{ojs}
+md`**Filter 2 Area ${f2A} sq in**`;
+```
+:::
+::::::
+
+:::::: grid
+::: g-col-4
+```{ojs}
+viewof f3W = Inputs.number([0, 60],{
+  label: "Filter 3 Width",
+  width: 75,
+  value: 0,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-4
+```{ojs}
+viewof f3H = Inputs.number([0, 60],{
+  label: "Filter 3 Height",
+  width: 75,
+  value: 0,
+  step: 0.5
+});
+
+```
+:::
+
+::: g-col-4
+```{ojs}
+md`**Filter 3 Area ${f3A} sq in**`;
+```
+:::
+::::::
+
+------------------------------------------------------------------------
+
+### Filters Report
+
+| 
+| 
+
+::::::: grid
+::: g-col-3
+##### [Total Filter Area]{.smallcaps}
+
+```{ojs}
+md`  ${fT} sq in`;
+```
+:::
+
+::: g-col-3
+##### [Maximum CFM]{.smallcaps}
+
+```{ojs}
+md`  ${fTcfmMax}cfm`;
+```
+:::
+
+::: g-col-3
+##### [Recommended CFM]{.smallcaps}
+
+```{ojs}
+md`  ${fTcfmRec}cfm`;
+```
+:::
+
+::: g-col-3
+##### [Deficient Area]{.smallcaps}
+
+```{ojs}
+md`  ${fTdA}sq. in.`;
+```
+:::
+:::::::
+
+```{ojs}
+md`#### Filter Face Velocity:   ${(fV).toLocaleString(undefined, {maximumFractionDigits: 0})} feet per minute`;
+```
+
+```{ojs}
+fP1d = (((fV - 75) / 75)) * .07
+fP2d = (((fV - 75) / 75)) * .045
+fP4d = (((fV - 75) / 75)) * .04
+fP5d = (((fV - 75) / 75)) * .03
+```
+
+::::::: grid
+::: g-col-12
+### Estimated Pressure Drop Based on Filter Thickness
+:::
+
+::: g-col-4
+```{ojs}
+md`#### 1" Filter Pressure Drop:  ${(fP1d).toLocaleString(undefined, {maximumFractionDigits: 3})} iwc`;
+```
+:::
+
+::: g-col-4
+```{ojs}
+md`#### 2" Filter Pressure Drop:  ${(fP2d).toLocaleString(undefined, {maximumFractionDigits: 3})} iwc`;
+```
+:::
+
+::: g-col-4
+```{ojs}
+md`#### 4" Filter Pressure Drop:  ${(fP4d).toLocaleString(undefined, {maximumFractionDigits: 3})} iwc`;
+```
+:::
+:::::::
+
+|
+|
+
+Note: Filter Pressure drop numbers are ***estimates only*** based on an approximate average for MERV 8 to MERV 11 filters. Please refer to pressure drop charts for actual filter installed to ensure accuracy.
+
+## Return Ducts
+
+### Return Duct Area
+
+```{ojs}
+rD1A = rD1W * rD1H; 
+rD2A = rD2W * rD2H; 
+rD3A = rD3W * rD3H; 
+rDT = rD4A + rD5A + rD6A + rD3A + rD2A + rD1A; 
+rDTcfmMax = rDT * 4.5; 
+rDTcfmRec = rDT * 3;
+rDTdA = (acCFM / 3) - rDT;
+rD4dr = rD4d / 2
+rD5dr = rD5d / 2
+rD6dr = rD6d / 2
+rD4A = rD4dr * rD4dr * pi
+rD5A = rD5dr * rD5dr * pi
+rD6A = rD6dr * rD6dr * pi
+```
+
+:::::: grid
+::: g-col-4
+```{ojs}
+viewof rD1W = Inputs.number([0, 60],{
+  label: "Return Duct 1 Width",
+  width: 75,
+  value: 10,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-4
+```{ojs}
+viewof rD1H = Inputs.number([0, 60],{
+  label: "Return Duct 1 Height",
+  width: 75,
+  value: 10,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-4
+```{ojs}
+md`**Return Duct 1 Area ${rD1A} sq in**`;
+```
+:::
+::::::
+
+:::::: grid
+::: g-col-4
+```{ojs}
+viewof rD2W = Inputs.number([0, 60],{
+  label: "Return Duct 2 Width",
+  width: 75,
+  value: 0,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-4
+```{ojs}
+viewof rD2H = Inputs.number([0, 60],{
+  label: "Return Duct 2 Height",
+  width: 75,
+  value: 0,
+  step: 0.5
+});
+
+```
+:::
+
+::: g-col-4
+```{ojs}
+md`**Return Duct 2 Area ${rD2A} sq in**`;
+```
+:::
+::::::
+
+:::::: grid
+::: g-col-4
+```{ojs}
+viewof rD3W = Inputs.number([0, 60],{
+  label: "Return Duct 3 Width",
+  width: 75,
+  value: 0,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-4
+```{ojs}
+viewof rD3H = Inputs.number([0, 60],{
+  label: "Return Duct 3 Height",
+  width: 75,
+  value: 0,
+  step: 0.5
+});
+
+```
+:::
+
+::: g-col-4
+```{ojs}
+md`**Return Duct 3 Area ${rD3A} sq in**`;
+```
+:::
+::::::
+
+::::: grid
+::: g-col-6
+```{ojs}
+viewof rD4d = Inputs.range([0, 60],{
+  label: "Round Return Duct 4 Diameter",
+  value: 12,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-6
+```{ojs}
+
+md`**Return Duct 4 Area ${(rD4A).toLocaleString(undefined, {maximumFractionDigits: 2})} sq in**`;
+```
+:::
+:::::
+
+::::: grid
+::: g-col-6
+```{ojs}
+viewof rD5d = Inputs.range([0, 60],{
+  label: "Round Return Duct 5 Diameter",
+  value: 0,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-6
+```{ojs}
+
+md`**Return Duct 5 Area ${(rD5A).toLocaleString(undefined, {maximumFractionDigits: 2})} sq in**`;
+```
+:::
+:::::
+
+::::: grid
+::: g-col-6
+```{ojs}
+viewof rD6d = Inputs.range([0, 60],{
+  label: "Round Return Duct 6 Diameter",
+  value: 0,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-6
+```{ojs}
+
+md`**Return Duct 6 Area ${(rD6A).toLocaleString(undefined, {maximumFractionDigits: 2})} sq in**`;
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### Return Ducts Report
+
+| 
+| 
+
+::::::: grid
+::: g-col-3
+##### [Total Return Duct Area]{.smallcaps}
+
+```{ojs}
+md`  ${(rDT).toLocaleString(undefined, {maximumFractionDigits: 0})} sq in`;
+```
+:::
+
+::: g-col-3
+##### [Maximum CFM]{.smallcaps}
+
+```{ojs}
+md`  ${(rDTcfmMax).toLocaleString(undefined, {maximumFractionDigits: 0})}cfm`;
+```
+:::
+
+::: g-col-3
+##### [Recommended CFM]{.smallcaps}
+
+```{ojs}
+md`  ${(rDTcfmRec).toLocaleString(undefined, {maximumFractionDigits: 0})}cfm`;
+```
+:::
+
+::: g-col-3
+##### [Deficient Area]{.smallcaps}
+
+```{ojs}
+md`  ${(rDTdA).toLocaleString(undefined, {maximumFractionDigits: 0})}sq. in.`;
+```
+:::
+:::::::
+
+------------------------------------------------------------------------
+
+## Supply Ducts
+
+### Supply Duct Area
+
+```{ojs}
+sD1A = sD1W * sD1H; 
+sD2A = sD2W * sD2H; 
+sD3A = sD3W * sD3H; 
+sDT = sD4A + sD5A + sD6A + sD3A + sD2A + sD1A; 
+sDTcfmMax = sDT * 6; 
+sDTcfmRec = sDT * 4.5;
+sDTdA = (acCFM / 4.5) - sDT;
+sD4dr = sD4d / 2
+sD5dr = sD5d / 2
+sD6dr = sD6d / 2
+sD4A = sD4dr * sD4dr * pi
+sD5A = sD5dr * sD5dr * pi
+sD6A = sD6dr * sD6dr * pi
+```
+
+:::::: grid
+::: g-col-4
+```{ojs}
+viewof sD1W = Inputs.number([0, 60],{
+  label: "Supply Duct 1 Width",
+  width: 75,
+  value: 10,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-4
+```{ojs}
+viewof sD1H = Inputs.number([0, 60],{
+  label: "Supply Duct 1 Height",
+  width: 75,
+  value: 10,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-4
+```{ojs}
+md`**Supply Duct 1 Area ${sD1A} sq in**`;
+```
+:::
+::::::
+
+:::::: grid
+::: g-col-4
+```{ojs}
+viewof sD2W = Inputs.number([0, 60],{
+  label: "Supply Duct 2 Width",
+  width: 75,
+  value: 0,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-4
+```{ojs}
+viewof sD2H = Inputs.number([0, 60],{
+  label: "Supply Duct 2 Height",
+  width: 75,
+  value: 0,
+  step: 0.5
+});
+
+```
+:::
+
+::: g-col-4
+```{ojs}
+md`**Supply Duct 2 Area ${sD2A} sq in**`;
+```
+:::
+::::::
+
+:::::: grid
+::: g-col-4
+```{ojs}
+viewof sD3W = Inputs.number([0, 60],{
+  label: "Supply Duct 3 Width",
+  width: 75,
+  value: 0,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-4
+```{ojs}
+viewof sD3H = Inputs.number([0, 60],{
+  label: "Supply Duct 3 Height",
+  width: 75,
+  value: 0,
+  step: 0.5
+});
+
+```
+:::
+
+::: g-col-4
+```{ojs}
+md`**Supply Duct 3 Area ${sD3A} sq in**`;
+```
+:::
+::::::
+
+::::: grid
+::: g-col-6
+```{ojs}
+viewof sD4d = Inputs.range([0, 60],{
+  label: "Round Supply Duct 4 Diameter",
+  value: 12,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-6
+```{ojs}
+
+md`**Supply Duct 4 Area ${(sD4A).toLocaleString(undefined, {maximumFractionDigits: 2})} sq in**`;
+```
+:::
+:::::
+
+::::: grid
+::: g-col-6
+```{ojs}
+viewof sD5d = Inputs.range([0, 60],{
+  label: "Round Supply Duct 5 Diameter",
+  value: 0,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-6
+```{ojs}
+
+md`**Supply Duct 5 Area ${(sD5A).toLocaleString(undefined, {maximumFractionDigits: 2})} sq in**`;
+```
+:::
+:::::
+
+::::: grid
+::: g-col-6
+```{ojs}
+viewof sD6d = Inputs.range([0, 60],{
+  label: "Round Supply Duct 6 Diameter",
+  value: 0,
+  step: 0.5
+});
+```
+:::
+
+::: g-col-6
+```{ojs}
+
+md`**Supply Duct 6 Area ${(sD6A).toLocaleString(undefined, {maximumFractionDigits: 2})} sq in**`;
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### Supply Ducts Report
+
+| 
+| 
+
+::::::: grid
+::: g-col-3
+##### [Total Supply Duct Area]{.smallcaps}
+
+```{ojs}
+md`  ${(sDT).toLocaleString(undefined, {maximumFractionDigits: 0})} sq in`;
+```
+:::
+
+::: g-col-3
+##### [Maximum CFM]{.smallcaps}
+
+```{ojs}
+md`  ${(sDTcfmMax).toLocaleString(undefined, {maximumFractionDigits: 0})}cfm`;
+```
+:::
+
+::: g-col-3
+##### [Recommended CFM]{.smallcaps}
+
+```{ojs}
+md`  ${(sDTcfmRec).toLocaleString(undefined, {maximumFractionDigits: 0})}cfm`;
+```
+:::
+
+::: g-col-3
+##### [Deficient Area]{.smallcaps}
+
+```{ojs}
+md`  ${(sDTdA).toLocaleString(undefined, {maximumFractionDigits: 0})}sq. in.`;
+```
+:::
+:::::::
+
+------------------------------------------------------------------------
+
+## Instructions
+
+1.  Select System Tonnage
+
+2.  Select Desired CFM per Ton for Air Conditioning
+
+    1.  350 cfm per ton is recommended for humid climates (all states east of the Mississippi and the Pacific Coast) or if necessary cfm per ton is unknown
+
+    2.  400 cfm per ton is recommended for non-coastal Midwest and Western US
+
+    3.  450 cfm per ton may be used for more arid climates like Arizona, Nevada, Colorado, etc
+
+    4.  A map will be available to make choosing necessary cfm per ton easier in future updates
+
+3.  If Gas Heat - 
+
+    1.  Check box next to Furnace to indicate calculations should also utilize furnace CFM
+
+    2.  Select Furnace Input BTU and Efficiency
+
+    3.  Input max temperature rise across durnace if known (if unknown, 50$\Delta$T recommended$)

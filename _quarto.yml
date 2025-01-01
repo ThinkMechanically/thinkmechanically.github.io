@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Think Mechanically"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - resumenoco.qmd
+      - ductSizingall.qmd
+
+format:
+  html:
+    theme:
+      light: cerulean
+      dark: slate
+    css: styles.css
+    toc: true
+    echo: false
+
+
+
