@@ -1,1 +1,0 @@
-# thinkmechanically.github.io
