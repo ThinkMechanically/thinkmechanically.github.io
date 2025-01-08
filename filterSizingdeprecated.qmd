@@ -1,0 +1,388 @@
+---
+title: "Filter Sizing"
+---
+
+## System Information
+
+------------------------------------------------------------------------
+
+::: callout-important
+*Please see Instructions and Information Regarding Duct Sizing Tools if you do not know how to use this calculator*
+:::
+
+### Air Conditioner Information
+
+```{ojs}
+//AC Form Inputs for Tonnage and CFM per Ton
+viewof acInfo = Inputs.form({
+  tonsAcSel: Inputs.radio([325, 350, 375, 400, 425, 450], {label: "Select CFM per Ton", value: 350
+  }),
+  cfmPerTonSel: Inputs.radio([1.5, 2, 2.5, 3, 3.5, 4, 5], {label: "Select Tons", value: 3})
+});
+//AC CFM Formula
+acCfm = (acInfo.cfmPerTonSel * acInfo.tonsAcSel);
+```
+
+```{ojs}
+//Show CFM
+md`${acCfm} cfm total AC`
+```
+
+------------------------------------------------------------------------
+
+```{ojs}
+//Furnace checkbox and test to Include Furnace - And Notification furnace CFM will be used
+viewof furn = Inputs.toggle({label: "Furnace"});
+yesfurn = "Gas Heating CFM will be Calculated"
+nofurn = "Gas Heating CFM will be set to Zero - Only AC CFM will be Used";
+furnTrue = 
+{
+  if(furn == true) { 
+    return yesfurn
+  } else { 
+    return nofurn
+  }
+};
+nofurnCFM = 0
+```
+
+::::: grid
+::: g-col-6
+```{ojs}
+//Furnace Input BTU
+viewof furnInBTU = Inputs.number([20000, 200000],{
+  label: "Furnace Input BTU/h",
+  value: 80000,
+  step: 1000,
+  width: 100
+});
+```
+:::
+
+::: g-col-6
+```{ojs}
+//Furnace Efficiency
+viewof furnEff = Inputs.number([.60, 1.00],{
+  label: "Furnace Efficiency",
+  value: .80,
+  step: .01,
+  width: 100
+});
+```
+:::
+:::::
+
+```{ojs}
+//Furnace Delta
+viewof furnMaxDelta = Inputs.radio([30, 35, 40, 45, 50, 55, 60, 65], {
+  label: "Furnace Max Temperature Rise", 
+  value: 50
+});
+```
+
+```{ojs}
+//Return Furnace CFM is being considered in calculations 
+md`*Note: ${furnTrue}*`;
+```
+
+```{ojs}
+//Return Furnace CFM as calculated based on Inputs
+furnOutBTU = furnInBTU * furnEff;
+heatCFM = furnOutBTU / (1.08 * furnMaxDelta);
+md`Furnace Minimum CFM: ${(furnMinCFM).toLocaleString(undefined, {maximumFractionDigits: 0})} CFM`;
+```
+
+------------------------------------------------------------------------
+
+```{ojs}
+//Return Design CFM being used for Calculations
+md`Minimum CFM: ${(minSysCFM).toLocaleString(undefined, {maximumFractionDigits: 0})} CFM`;
+```
+
+------------------------------------------------------------------------
+
+Filter Thickness
+
+```{ojs}
+viewof filterThickness = Inputs.select([1, 2, 4, 5], {label: "Select Filter Thickness", value: 2, width: 75})
+
+```
+
+```{ojs}
+//Formulas Related to Total System and Airflow Calculations
+//Minimum Duct and Filter Sizes for AC
+minfTAc = acCfm / 2;
+minrDAc = (acCfm / 4.86);
+minsDAc = acCfm / 6.5;
+//Minimum Duct and Filter Sizes for Heating
+minfTAh = furnMinCFM / 2;
+minrDAh = (furnMinCFM / 4.86);
+minsDAh = furnMinCFM / 6.5;
+//Filter Totals
+fTcfmMax = fT * 2; 
+fT = f3A + f2A + f1A;
+//Minimum Duct and Filter Sizes Based on Design CFM
+minfTA = minSysCFM / (300 / 144);
+minfTA1 = minSysCFM / (225 / 144);
+minrDA = (minSysCFM / 4.86);
+minsDA = minSysCFM / 6.5;
+//Mathematical constants
+pi = 3.141
+```
+
+```{ojs}
+//Calculate Design CFM Based on Higher of Furnace or AC
+furnMinCFM = 
+{
+  if(furn == true) { 
+    return heatCFM
+  } else { 
+    return nofurnCFM
+  }
+};
+minSysCFM = 
+{
+  if(acCfm > furnMinCFM) { 
+    return acCfm
+  } else { 
+    return furnMinCFM
+  }
+}
+```
+
+:::::: grid
+::: g-col-4
+```{ojs}
+//Filter Width Inputs
+viewof filtW = Inputs.form({
+    f1w: Inputs.number([0, 60],{label: "Filter 1 Width", width: 75, value: 16}),
+    f2w: Inputs.number([0, 60],{label: "Filter 2 Width", width: 75, value: 0}),
+    f3w: Inputs.number([0, 60],{label: "Filter 2 Width", width: 75, value: 0})
+});
+```
+:::
+
+::: g-col-4
+```{ojs}
+//Filter Height Inputs
+viewof filtH = Inputs.form({
+    f1h: Inputs.number([0, 60],{label: "Filter 1 Height", width: 75, value: 20}),
+    f2h: Inputs.number([0, 60],{label: "Filter 2 Height", width: 75, value: 0}),
+    f3h: Inputs.number([0, 60],{label: "Filter 3 Height", width: 75, value: 0})
+});
+```
+:::
+
+::: g-col-4
+```{ojs}
+//Filter Area Results
+f1A = filtW.f1w * filtH.f1h;
+f2A = filtW.f2w * filtH.f2h;
+f3A = filtW.f3w * filtH.f3h;
+viewof filtA = Inputs.form({
+    f1aR: Inputs.number({value: f1A, disabled: true, label: "Filter 1 Area", width: 75}),
+    f2aR: Inputs.number({value: f2A, disabled: true, label: "Filter 2 Area", width: 75}),
+    f3aR: Inputs.number({value: f3A, disabled: true, label: "Filter 3 Area", width: 75})
+});
+```
+:::
+::::::
+
+------------------------------------------------------------------------
+
+::::: grid
+::: g-col-6
+##### [Total Filter Area]{.smallcaps}
+
+```{ojs}
+//Show Total Filter Area
+md`  ${fT} sq in`;
+```
+:::
+
+::: g-col-6
+##### [Maximum CFM]{.smallcaps}
+
+```{ojs}
+//Show Maximum CFM Based on Filter Area
+md`  ${fTcfmMax}cfm`;
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Filter Performance Report
+
+```{ojs}
+//Written Performance Grade Based on Velocity
+filtPerfGrade = 
+{
+  if(fV >= 500) { 
+    return ("Worst - Additional Filters Required")
+  }
+    else if(filtExcessVelocity >= 85) { 
+      return ("Poor")
+  } else if(filtExcessVelocity >= 30) { 
+      return ("Average")
+  } else if(filtExcessVelocity >= 3) { 
+      return ("Good")
+  } else { 
+    return ("Excellent")
+  }
+};
+md`### Filter Performance Based on Velocity:  **${filtPerfGrade}**`
+```
+
+```{ojs}
+md`#### Air Velocity at Filter:  **${(fV).toLocaleString(undefined, {maximumFractionDigits: 0})} FPM**`
+```
+
+::: callout-note
+Excess filter velocity reduces performace of the filter (over 500 fpm for most filters and the filter ***will not*** trap dirt at its MERV Rating) and cause dirt to build up around grilles and ducts faster than average.
+:::
+
+```{ojs}
+fV = minSysCFM / (fT / 144)
+```
+
+##### [Summary]{.smallcaps}
+
+```{ojs}
+md`**Air Velocity at Filter:  ${(fV).toLocaleString(undefined, {maximumFractionDigits: 0})} FPM**`
+```
+
+```{ojs}
+filtExcessVelocity = 
+{
+  if(filterThickness == 1) { 
+    return (fV - 225)
+  } else { 
+    return (fV - 300)
+  }
+}
+```
+
+```{ojs}
+md`**Air Velocity Over Recommended: ${(filtExcessVelocity).toLocaleString(undefined, {maximumFractionDigits: 0})} FPM**`
+```
+
+```{ojs}
+fP1d = (((fV - 75) / 75)) * .07;
+fP2d = (((fV - 75) / 75)) * .045;
+fP4d = (((fV - 75) / 75)) * .04;
+fP5d = (((fV - 75) / 75)) * .03
+```
+
+```{ojs}
+pDeltaEstimate = 
+{
+  if(filterThickness == 1) { 
+    return (fP1d)
+  } else if(filterThickness == 2) { 
+      return (fP2d)
+  } else if(filterThickness == 3) { 
+      return (fP4d)
+  } else { 
+    return (fP5d)
+  }
+}
+```
+
+```{ojs}
+md`**Estimated Filter Pressure Drop:   ${(pDeltaEstimate).toLocaleString(undefined, {maximumFractionDigits: 3})} in. w.c.**`
+```
+
+```{ojs}
+addFilterArea = 
+{
+  if(filterThickness == 1) { 
+    return (minfTA1 - fT)
+  } else { 
+    return (minfTA - fT)
+  }
+};
+```
+
+```{ojs}
+filtPerfGradePd = 
+{
+  if(pDeltaEstimate >= 0.3) { 
+    return ("Worst - Low System Efficiency")
+  }
+    else if(pDeltaEstimate >= 0.22) { 
+      return ("Poor")
+  } else if(pDeltaEstimate >= 0.15) { 
+      return ("Average")
+  } else if(pDeltaEstimate >= 0.1) { 
+      return ("Good")
+  } else { 
+    return ("Excellent")
+  }
+}
+```
+
+```{ojs}
+md`### Filter Performance Based on Pressure Drop: ${filtPerfGradePd}`
+```
+
+```{ojs}
+md`#### Estimated Filter Pressure Drop: **${(pDeltaEstimate).toLocaleString(undefined, {maximumFractionDigits: 3})} in. w.c.**`
+```
+
+::: {.callout-note appearance="simple"}
+Excess pressure drop over about 0.1 in. wc. will generally mean that the system ductwork will not perform as intended. This is because most residential ducted systems are designed with a default of 0.1 in. w.c. across the filter. If filter pressure drop estimate exceeds 0.2 in w.c. a "hoghair" or otherwise very basic filter should be used or additional/larger filters installed as soon as possible.
+
+Excess pressure drop will also cause either (A) lower airflow in the system and/or (B) increased energy usage by the fan which will increase energy bills and reduce the lifetime of the fan motor.
+:::
+
+```{ojs}
+md`**Additional Filter Area Recommended:  ${(addFilterArea).toLocaleString(undefined, {maximumFractionDigits: 0})} sq. in.**`
+```
+
+```{ojs}
+sqFiltSize = Math.sqrt(addFilterArea)
+md`**Additional Square Filter Size:  ${(sqFiltSize).toLocaleString(undefined, {maximumFractionDigits: 0})}" x ${(sqFiltSize).toLocaleString(undefined, {maximumFractionDigits: 0})}" **`
+```
+
+Some Equivalent Rectangular Filter Sizes
+
+```{ojs}
+md`8" Wide Filter:  ${(addFilterArea / 8).toLocaleString(undefined, {maximumFractionDigits: 0})}" x 8"`
+```
+
+```{ojs}
+md`10" Wide Filter:  ${(addFilterArea / 10).toLocaleString(undefined, {maximumFractionDigits: 0})}" x 10"`
+```
+
+```{ojs}
+md`12" Wide Filter:  ${(addFilterArea / 12).toLocaleString(undefined, {maximumFractionDigits: 0})}" x 12"`
+```
+
+```{ojs}
+md`14" Wide Filter:  ${(addFilterArea / 14).toLocaleString(undefined, {maximumFractionDigits: 0})}" x 14"`
+```
+
+```{ojs}
+md`16" Wide Filter:  ${(addFilterArea / 16).toLocaleString(undefined, {maximumFractionDigits: 0})}" x 16"`
+```
+
+```{ojs}
+md`18" Wide Filter:  ${(addFilterArea / 18).toLocaleString(undefined, {maximumFractionDigits: 0})}" x 18"`
+```
+
+```{ojs}
+md`20" Wide Filter:  ${(addFilterArea / 20).toLocaleString(undefined, {maximumFractionDigits: 0})}" x 20"`
+```
+
+```{ojs}
+md`22" Wide Filter:  ${(addFilterArea / 22).toLocaleString(undefined, {maximumFractionDigits: 0})}" x 22"`
+```
+
+```{ojs}
+md`24" Wide Filter:  ${(addFilterArea / 24).toLocaleString(undefined, {maximumFractionDigits: 0})}" x 24"`
+```
+
+```{ojs}
+md`25" Wide Filter:  ${(addFilterArea / 25).toLocaleString(undefined, {maximumFractionDigits: 0})}" x 25"`
+```

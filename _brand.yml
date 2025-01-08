@@ -1,0 +1,22 @@
+color:
+  palette: 
+    Deep Navy Blue: "#4567b7" # Deep Navy Blue
+    Sky Blue: "#87ceeb" # Sky Blue
+    Light Azure: "#6495ed" # Light Azure
+    Gray: "#f0f0f0" # Gray
+    Dark Gray: "#cccccc" # Dark Gray
+    Medium Gray: "#808080" # Medium Gray
+    Orange-Red: "#ff9900"
+  background: Gray
+  foreground: Deep Navy Blue
+  primary: Deep Navy Blue
+  secondary: Orange-Red
+
+typography: 
+  fonts:
+    - family: Georgia
+      source: google
+    - family: Roboto Sans
+      source: google
+  base: Roboto Sans
+  headings: Georgia

@@ -1,0 +1,316 @@
+
+```{ojs}
+//Formulas for CFM Calculation Inputs
+//AC CFM Formula
+
+acCfm = (acInfo.cfmPerTonSel * acInfo.tonsAcSel);
+
+nofurnCFM = 0;
+
+//Furnace Being Used Yes or No
+
+yesfurn = "Gas Heating CFM is considered in these Design Calculations";
+nofurn = "Gas Heating CFM is set to Zero - Only AC CFM will be Used.  If you would like to have Furnace CFM considered in Design CFM calculations please check the Checkbox for Furnace under Furnace Info";
+
+furnTrue = 
+{
+  if(furn == true) { 
+    return yesfurn
+  } else { 
+    return nofurn
+  }
+};
+
+//Return Furnace CFM as calculated based on Inputs
+
+furnOutBTU = furnInBTU * furnEff;
+heatCFM = furnOutBTU / (1.08 * furnMaxDelta);
+furnMinCFM = 
+{
+  if(furn == true) { 
+    return heatCFM
+  } else { 
+    return nofurnCFM
+  }
+};
+minSysCFM = 
+{
+  if(acCfm > furnMinCFM) { 
+    return acCfm
+  } else { 
+    return furnMinCFM
+  }
+};
+//Filter Performance if/else Statements
+
+filtPerfGrade = 
+{
+  if(fV >= 500) { 
+    return ("Worst - Additional Filters Required")
+  }
+    else if(filtExcessVelocity >= 85) { 
+      return ("Poor")
+  } else if(filtExcessVelocity >= 30) { 
+      return ("Average")
+  } else if(filtExcessVelocity >= 3) { 
+      return ("Good")
+  } else { 
+    return ("Excellent")
+  }
+};
+
+addFilterArea = 
+{
+  if(filterThickness == 1) { 
+    return (minfTA1 - fT)
+  } else { 
+    return (minfTA - fT)
+  }
+};
+
+filtPerfGradePd = 
+{
+  if(pDeltaEstimate >= 0.3) { 
+    return ("Worst - Low System Efficiency")
+  }
+    else if(pDeltaEstimate >= 0.22) { 
+      return ("Poor")
+  } else if(pDeltaEstimate >= 0.15) { 
+      return ("Average")
+  } else if(pDeltaEstimate >= 0.1) { 
+      return ("Good")
+  } else { 
+    return ("Excellent")
+  }
+};
+
+filtExcessVelocity = 
+{
+  if(filterThickness == 1) { 
+    return (fV - 225)
+  } else { 
+    return (fV - 300)
+  }
+};
+
+pDeltaEstimate = 
+{
+  if(filterThickness == 1) { 
+    return (fP1d)
+  } else if(filterThickness == 2) { 
+      return (fP2d)
+  } else if(filterThickness == 3) { 
+      return (fP4d)
+  } else { 
+    return (fP5d)
+  }
+};
+
+//Filter Pressure Drop Estimates
+fV = minSysCFM / (fT / 144);
+fP1d = (((fV - 75) / 75)) * .07;
+fP2d = (((fV - 75) / 75)) * .045;
+fP4d = (((fV - 75) / 75)) * .04;
+fP5d = (((fV - 75) / 75)) * .03;
+
+//Formulas Related to Total System and Airflow Calculations
+//Minimum Duct and Filter Sizes for AC
+minfTAc = acCfm / 2;
+minrDAc = (acCfm / 4.86);
+minsDAc = acCfm / 6.5;
+//Minimum Duct and Filter Sizes for Heating
+minfTAh = furnMinCFM / 2;
+minrDAh = (furnMinCFM / 4.86);
+minsDAh = furnMinCFM / 6.5;
+//Filter Totals
+fTcfmMax = fT * 2; 
+fT = f3A + f2A + f1A;
+//Minimum Duct and Filter Sizes Based on Design CFM
+minfTA = minSysCFM / (300 / 144);
+minfTA1 = minSysCFM / (225 / 144);
+minrDA = (minSysCFM / 4.86);
+minsDA = minSysCFM / 6.5;
+//Mathematical constants
+pi = 3.141
+
+```
+
+
+::: {.panel-tabset}
+
+
+
+## How To Use This
+This group of tabs is where you can input information about the System you are calculation filter sizes for.  After you have finished inputting all of the information, you can move on to see what the minimum duct and filter sizes are based on the information you provided.
+
+If you are not sure what CFM per Ton or Furnace Max Temperature Rise to use, please leave them to the default.  You can see more information here (this page not available yet)
+
+After you have input all of the information, please leave this tab on results if you intend to print this page, and for easy verification all the proper inputs have been completed accurately
+
+## AC Info
+```{ojs}
+//| panel: input
+
+
+//AC Form Inputs for Tonnage and CFM per Ton
+viewof acInfo = Inputs.form({
+  tonsAcSel: Inputs.radio([1.5, 2, 2.5, 3, 3.5, 4, 5], {label: "Select Tons", value: 3}),
+  cfmPerTonSel: Inputs.radio([325, 350, 375, 400, 425, 450], {label: "Select CFM per Ton", value: 350
+  })
+})
+```
+
+## Furnace Info
+```{ojs}
+//| panel: input
+
+//Furnace Input BTU
+viewof furn = Inputs.toggle({label: "Furnace"});
+viewof furnInBTU = Inputs.number([20000, 200000],{
+  label: "Furnace Input BTU/h",
+  value: 80000,
+  step: 1000,
+  width: 100
+});
+viewof furnEff = Inputs.number([.60, 1.00],{
+  label: "Furnace Efficiency",
+  value: .80,
+  step: .01,
+  width: 100
+});
+viewof furnMaxDelta = Inputs.radio([30, 35, 40, 45, 50, 55, 60, 65], {
+  label: "Furnace Max Temperature Rise", 
+  value: 50
+});
+```
+
+## Results
+
+```{ojs}
+//| panel: input
+
+html`<h5>AC System: <b>${acInfo.tonsAcSel}</b> Tons of AC at <b>${acInfo.cfmPerTonSel}</b> CFM per Ton</h5>`;
+html`<h5>Target CFM for Air Conditioning: <b>${acCfm}</b></h5>`;
+html`<h5>Furnace Minimum CFM: <b>${(furnMinCFM).toLocaleString(undefined, {maximumFractionDigits: 0})}</b> CFM</h5>`
+html`<h5>Design CFM for Calculations: <b>${(minSysCFM).toLocaleString(undefined, {maximumFractionDigits: 0})}</b> CFM</h5>`
+
+```
+
+```{ojs}
+html`<i><sub>Note: Design CFM is the greater of Minimum Furnace or Minimum AC CFM</sub></i>`;
+html`<i><sub>Note: ${furnTrue}</sub></i>`
+```
+
+:::
+
+```{ojs}
+f1A = filtW.f1w * filtH.f1h;
+f2A = filtW.f2w * filtH.f2h;
+f3A = filtW.f3w * filtH.f3h;
+```
+
+
+::: {.panel-tabset}
+
+## Current Filter Sizes
+
+```{ojs}
+//| panel: input
+
+viewof filterThickness = Inputs.select([1, 2, 4, 5], {label: "Select Filter Thickness", value: 2, width: 75})
+```
+
+```{ojs}
+//| panel: input
+//| layout-ncol: 2
+
+viewof filtW = Inputs.form({
+    f1w: Inputs.number([0, 60],{label: "Filter 1 Width", width: 63, value: 16}),
+    f2w: Inputs.number([0, 60],{label: "Filter 2 Width", width: 63, value: 0}),
+    f3w: Inputs.number([0, 60],{label: "Filter 2 Width", width: 63, value: 0})
+});
+viewof filtH = Inputs.form({
+    f1h: Inputs.number([0, 60],{label: "Filter 1 Height", width: 63, value: 20}),
+    f2h: Inputs.number([0, 60],{label: "Filter 2 Height", width: 63, value: 0}),
+    f3h: Inputs.number([0, 60],{label: "Filter 3 Height", width: 63, value: 0})
+});
+```
+
+## Filter Area
+
+```{ojs}
+//| panel: input
+
+
+html`<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-bottom-width:1px;border-color:black;border-style:solid;border-top-width:1px;border-width:0px;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-bottom-width:1px;border-color:black;border-style:solid;border-top-width:1px;border-width:0px;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-fnfs{font-family:Georgia, serif !important;font-size:13px;text-align:center;vertical-align:middle}
+.tg .tg-js4m{background-color:#cbcefb;font-family:Georgia, serif !important;font-size:14px;font-weight:bold;text-align:center;
+  vertical-align:bottom}
+.tg .tg-z6f0{background-color:#cbcefb;font-family:Georgia, serif !important;font-size:14px;font-weight:bold;text-align:center;
+  vertical-align:middle}
+.tg .tg-tx0g{background-color:#ffffff;font-family:Georgia, serif !important;font-size:13px;text-align:right;vertical-align:middle}
+.tg .tg-70wb{background-color:#cbcefb;font-family:Georgia, serif !important;font-size:14px;font-weight:bold;text-align:right;
+  vertical-align:middle}
+@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;}}</style>
+<div class="tg-wrap"><table class="tg" style="undefined;table-layout: fixed; width: 483px"><colgroup>
+<col style="width: 161px">
+<col style="width: 161px">
+<col style="width: 161px">
+</colgroup>
+<thead>
+  <tr>
+    <th class="tg-js4m">Filter Areas</th>
+    <th class="tg-z6f0">Sq. In.</th>
+    <th class="tg-z6f0">Sq. Ft</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-tx0g">Filter 1 :</td>
+    <td class="tg-fnfs">${f1A} sq. in.</td>
+    <td class="tg-fnfs">${(f1A / 144).toLocaleString(undefined, {maximumFractionDigits: 2})} sq. ft.</td>
+  </tr>
+  <tr>
+    <td class="tg-tx0g">Filter 2 :</td>
+    <td class="tg-fnfs">${f2A} sq. in.</td>
+    <td class="tg-fnfs">${(f2A / 144).toLocaleString(undefined, {maximumFractionDigits: 2})} sq. ft.</td>
+  </tr>
+  <tr>
+    <td class="tg-tx0g">Filter 3 :</td>
+    <td class="tg-fnfs">${f3A} sq. in.</td>
+    <td class="tg-fnfs">${(f3A / 144).toLocaleString(undefined, {maximumFractionDigits: 2})} sq. ft.</td>
+  </tr>
+  <tr>
+    <td class="tg-70wb">Total Area :</td>
+    <td class="tg-z6f0">${fT} sq. in.</td>
+    <td class="tg-z6f0">${(fT / 144).toLocaleString(undefined, {maximumFractionDigits: 2})} sq. ft.</td>
+  </tr>
+</tbody>
+</table></div>`
+```
+
+## Filter Results
+
+```{ojs}
+//| panel: input
+
+
+//Written Performance Grade Based on Velocity
+
+md`##### Total Filter Area:  **${fT} sq. in.**`;
+md`##### Filter Performance Based on Velocity:  **${filtPerfGrade}**`;
+md`##### Air Velocity at Filter:  **${(fV).toLocaleString(undefined, {maximumFractionDigits: 0})} FPM**`;
+md`##### Filter Performance Based on Pressure Drop: **${filtPerfGradePd}**`
+md`##### Estimated Filter Pressure Drop: **${(pDeltaEstimate).toLocaleString(undefined, {maximumFractionDigits: 3})} in. w.c.**`;
+md`**Additional Filter Area Recommended:  ${(addFilterArea).toLocaleString(undefined, {maximumFractionDigits: 0})} sq. in.**`;
+```
+
+```{ojs}
+html`<sub>Note: Filter drop estimate is based on average of similar filters and should only be used as a reference.  Please consult exact filter specification or measure actual filter drop of clean filter, if possible</sub>`
+```
+
+:::

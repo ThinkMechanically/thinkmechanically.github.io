@@ -2,6 +2,11 @@
 title: "0 - Website Repository Folder"
 ---
 
-This is a Quarto website.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+## Welcome to Thinking Mechanically
+This website is a place to find as much information as I can on HVAC, with a focus on filter and duct sizing, as well as upcoming information on plumbing, gas, and anything else related to the mechanical trades.
+
+### This site is still under construction
+There is still a lot of work to do but use the navigation bar to the left to see anything that is completed or otherwise currently available.
+
+Thank you to the community, developers, and staff at Posit and of Quarto for helping me to make building this website possible.  Also, a particular thanks to the team involved with Observable JS for that framework which made the inputs and javascript simpler to create - without which these calculators and diagrams may have never been completed

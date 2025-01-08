@@ -1,0 +1,27 @@
+---
+title: "List of Tools"
+format: html
+---
+
+## Tools and Calculators on this Website
+
+#### System Duct Sizing
+
+Includes tools to evaluate sizing duct for an entire system. I recommend you explore using the individual tools below before you dive into performing all of the sizing in one page in this calculator. However, once you understand the individual tools this is useful for evaluating all of the connections at a new install or equipment replacement when necessary
+
+#### Return Filter Sizing
+
+Quickly see if a system filter is large enough and estimate the pressure drop of an installed filter
+
+#### Return Duct Sizing
+
+Quickly see if a system return trunk(s) is large enough to accomodate the necessary airflow
+
+#### Supply Duct Sizing
+
+Quickly see if a system supply trunk(s) is large enough to accomodate the necessary airflow
+
+#### Branch Duct Sizing
+
+Evaluate if a branch duct is large enough to supply the correct amount of air, or determine what size branch duct you should use for a given cfm
+

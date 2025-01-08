@@ -4,22 +4,43 @@ project:
 
 website:
   title: "Think Mechanically"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
-      - resumenoco.qmd
-      - ductSizingall.qmd
+  sidebar:
+    title: Navigattion
+    style: "docked"
+    search: true
+    contents:
+      - text: Home
+        href: index.qmd
+      - section: "Tools"
+        href: listTools.qmd
+        contents:
+          - text: System Duct Sizing
+            href: ductSizingall.qmd
+          - text: FilterSizing
+            href: filterSizing.qmd
+      - section: "About"
+        href: about.qmd
+        contents:
+          - text: About Me
+            href: about.qmd
+          - text: Resume
+            href: resumenoco.qmd
+      - section: "WIP"
+        href: filterSizingdeprecated.qmd
+        contents:
+          - text: FilterSizingdep
+            href: filterSizingdeprecated.qmd
 
 format:
   html:
     theme:
-      light: cerulean
+      light: united
       dark: slate
     css: styles.css
     toc: true
     echo: false
+    brand: _brand.yml
+
 
 
 

@@ -1,5 +1,6 @@
 ---
-title: "Trunk Duct Sizing"
+title: "ductSizingallv1"
+editor: visual
 ---
 
 ## System Information
@@ -9,10 +10,14 @@ title: "Trunk Duct Sizing"
 ### Air Conditioner Information
 
 ```{ojs}
-viewof acInfo = Inputs.form({
-  tonsAcSel: Inputs.radio([325, 350, 375, 400, 425, 450], {label: "Select CFM per Ton", value: 350
-  }),
-  cfmPerTonSel: Inputs.radio([1.5, 2, 2.5, 3, 3.5, 4, 5], {label: "Select Tons", value: 3})
+viewof tonsAcSel = Inputs.radio([1.5, 2, 2.5, 3, 3.5, 4, 5], {label: "Select Tons", value: 3})
+
+```
+
+```{ojs}
+viewof CfmPerTonSel = Inputs.radio([325, 350, 375, 400, 425, 450], {
+  label: "Select CFM per Ton", 
+  value: 350
 });
 ```
 
@@ -85,7 +90,7 @@ nofurn = "Gas Heating CFM will be set to Zero - Only AC CFM will be Used"
 
 ```{ojs}
 //Formulas Related to Total System and Airflow Calculations
-acCFM = acInfo.tonsAcSel * acInfo.cfmPerTonSel;
+acCFM = tonsAcSel * CfmPerTonSel;
 nofurnCFM = 0;
 minfTAc = acCFM / 2;
 minrDAc = (acCFM / 4.86);
@@ -188,7 +193,7 @@ md`##### Minimum Supply Area: ${(minsDAh).toLocaleString(undefined, {maximumFrac
 #### Minimum Air Conditioner CFM, Filter, and Duct Sizes
 
 ```{ojs}
-md`##### Minimum AC CFM: ${acCFM} cfm`;
+md`##### Minimum AC CFM: ${tonsAcSel * CfmPerTonSel} cfm`;
 ```
 
 ```{ojs}
