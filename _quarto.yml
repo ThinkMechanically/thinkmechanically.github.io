@@ -4,8 +4,18 @@ project:
 
 website:
   title: "Think Mechanically"
+  description: HVAC Information - Tools - and Calculators
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Tools"
+        href: listTools.qmd
+
   sidebar:
-    title: Navigattion
+    title: Navigation
     style: "docked"
     search: true
     contents:
@@ -35,11 +45,13 @@ format:
   html:
     theme:
       light: united
-      dark: slate
+      dark: darkly
     css: styles.css
     toc: true
     echo: false
     brand: _brand.yml
+    logo: tmlogo.png
+    logo-alt: z-favicon.png
 
 
 
