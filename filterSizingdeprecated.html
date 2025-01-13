@@ -73,8 +73,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-77f8b1bfc0025fe32d604ecec27e9695.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-7fa11aef8d5fd80bcb377ef4258c0527.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b6c33557a3b6d07acbebb27665dc6fef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-a0c5c46614535ff82880af345e648891.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -467,33 +467,38 @@ Important
 </div>
 </div>
 <hr>
-<p>Filter Thickness</p>
+<section id="filter-thickness" class="level5">
+<h5 class="anchored" data-anchor-id="filter-thickness">Filter Thickness</h5>
+<div class="grid">
+<div class="g-col-6">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb10" data-startfrom="106" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 105;"><span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a>viewof filterThickness <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Select Filter Thickness"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">width</span><span class="op">:</span> <span class="dv">75</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb10" data-startfrom="108" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 107;"><span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a>viewof filterThickness <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">width</span><span class="op">:</span> <span class="dv">75</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-10" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
+</div>
+<div class="g-col-6">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb11" data-startfrom="114" data-source-offset="-99"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 113;"><span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a>minfTAc <span class="op">=</span> acCfm <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a>minrDAc <span class="op">=</span> (acCfm <span class="op">/</span> <span class="fl">4.86</span>)<span class="op">;</span></span>
-<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a>minsDAc <span class="op">=</span> acCfm <span class="op">/</span> <span class="fl">6.5</span><span class="op">;</span></span>
-<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a><span class="co">//Minimum Duct and Filter Sizes for Heating</span></span>
-<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a>minfTAh <span class="op">=</span> furnMinCFM <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a>minrDAh <span class="op">=</span> (furnMinCFM <span class="op">/</span> <span class="fl">4.86</span>)<span class="op">;</span></span>
-<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a>minsDAh <span class="op">=</span> furnMinCFM <span class="op">/</span> <span class="fl">6.5</span><span class="op">;</span></span>
-<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a><span class="co">//Filter Totals</span></span>
-<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a>fTcfmMax <span class="op">=</span> fT <span class="op">*</span> <span class="dv">2</span><span class="op">;</span> </span>
-<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a>fT <span class="op">=</span> f3A <span class="op">+</span> f2A <span class="op">+</span> f1A<span class="op">;</span></span>
-<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a><span class="co">//Minimum Duct and Filter Sizes Based on Design CFM</span></span>
-<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a>minfTA <span class="op">=</span> minSysCFM <span class="op">/</span> (<span class="dv">300</span> <span class="op">/</span> <span class="dv">144</span>)<span class="op">;</span></span>
-<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a>minfTA1 <span class="op">=</span> minSysCFM <span class="op">/</span> (<span class="dv">225</span> <span class="op">/</span> <span class="dv">144</span>)<span class="op">;</span></span>
-<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a>minrDA <span class="op">=</span> (minSysCFM <span class="op">/</span> <span class="fl">4.86</span>)<span class="op">;</span></span>
-<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a>minsDA <span class="op">=</span> minSysCFM <span class="op">/</span> <span class="fl">6.5</span><span class="op">;</span></span>
-<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a><span class="co">//Mathematical constants</span></span>
-<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> <span class="fl">3.141</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb11" data-startfrom="118" data-source-offset="-99"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 117;"><span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a>minfTAc <span class="op">=</span> acCfm <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a>minrDAc <span class="op">=</span> (acCfm <span class="op">/</span> <span class="fl">4.86</span>)<span class="op">;</span></span>
+<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a>minsDAc <span class="op">=</span> acCfm <span class="op">/</span> <span class="fl">6.5</span><span class="op">;</span></span>
+<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a><span class="co">//Minimum Duct and Filter Sizes for Heating</span></span>
+<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a>minfTAh <span class="op">=</span> furnMinCFM <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a>minrDAh <span class="op">=</span> (furnMinCFM <span class="op">/</span> <span class="fl">4.86</span>)<span class="op">;</span></span>
+<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a>minsDAh <span class="op">=</span> furnMinCFM <span class="op">/</span> <span class="fl">6.5</span><span class="op">;</span></span>
+<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a><span class="co">//Filter Totals</span></span>
+<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a>fTcfmMax <span class="op">=</span> fT <span class="op">*</span> <span class="dv">2</span><span class="op">;</span> </span>
+<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a>fT <span class="op">=</span> f3A <span class="op">+</span> f2A <span class="op">+</span> f1A<span class="op">;</span></span>
+<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a><span class="co">//Minimum Duct and Filter Sizes Based on Design CFM</span></span>
+<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a>minfTA <span class="op">=</span> minSysCFM <span class="op">/</span> (<span class="dv">300</span> <span class="op">/</span> <span class="dv">144</span>)<span class="op">;</span></span>
+<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a>minfTA1 <span class="op">=</span> minSysCFM <span class="op">/</span> (<span class="dv">225</span> <span class="op">/</span> <span class="dv">144</span>)<span class="op">;</span></span>
+<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a>minrDA <span class="op">=</span> (minSysCFM <span class="op">/</span> <span class="fl">4.86</span>)<span class="op">;</span></span>
+<span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a>minsDA <span class="op">=</span> minSysCFM <span class="op">/</span> <span class="fl">6.5</span><span class="op">;</span></span>
+<span id="cb11-133"><a href="#cb11-133" aria-hidden="true" tabindex="-1"></a><span class="co">//Mathematical constants</span></span>
+<span id="cb11-134"><a href="#cb11-134" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> <span class="fl">3.141</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-11-1" data-nodetype="declaration">
@@ -587,22 +592,22 @@ Important
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb12" data-startfrom="135" data-source-offset="-56"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 134;"><span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a>furnMinCFM <span class="op">=</span> </span>
-<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(furn <span class="op">==</span> <span class="kw">true</span>) { </span>
-<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> heatCFM</span>
-<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { </span>
-<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> nofurnCFM</span>
-<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
-<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a>minSysCFM <span class="op">=</span> </span>
-<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(acCfm <span class="op">&gt;</span> furnMinCFM) { </span>
-<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> acCfm</span>
-<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { </span>
-<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> furnMinCFM</span>
-<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb12" data-startfrom="139" data-source-offset="-56"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 138;"><span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a>furnMinCFM <span class="op">=</span> </span>
+<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(furn <span class="op">==</span> <span class="kw">true</span>) { </span>
+<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> heatCFM</span>
+<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { </span>
+<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> nofurnCFM</span>
+<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a>minSysCFM <span class="op">=</span> </span>
+<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(acCfm <span class="op">&gt;</span> furnMinCFM) { </span>
+<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> acCfm</span>
+<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { </span>
+<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> furnMinCFM</span>
+<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-12-1" data-nodetype="declaration">
@@ -618,30 +623,37 @@ Important
 </div>
 </div>
 </div>
+</div>
+</div>
+<hr>
+</section>
+<section id="filter-1-size" class="level5">
+<h5 class="anchored" data-anchor-id="filter-1-size">Filter 1 Size</h5>
 <div class="grid">
-<div class="g-col-4">
+<div class="g-col-3">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb13" data-startfrom="155" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 154;"><span id="cb13-155"><a href="#cb13-155" aria-hidden="true" tabindex="-1"></a><span class="co">//Filter Width Inputs</span></span>
-<span id="cb13-156"><a href="#cb13-156" aria-hidden="true" tabindex="-1"></a>viewof filtW <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">form</span>({</span>
-<span id="cb13-157"><a href="#cb13-157" aria-hidden="true" tabindex="-1"></a>    <span class="dt">f1w</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">number</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span>{<span class="dt">label</span><span class="op">:</span> <span class="st">"Filter 1 Width"</span><span class="op">,</span> <span class="dt">width</span><span class="op">:</span> <span class="dv">75</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">16</span>})<span class="op">,</span></span>
-<span id="cb13-158"><a href="#cb13-158" aria-hidden="true" tabindex="-1"></a>    <span class="dt">f2w</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">number</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span>{<span class="dt">label</span><span class="op">:</span> <span class="st">"Filter 2 Width"</span><span class="op">,</span> <span class="dt">width</span><span class="op">:</span> <span class="dv">75</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span>})<span class="op">,</span></span>
-<span id="cb13-159"><a href="#cb13-159" aria-hidden="true" tabindex="-1"></a>    <span class="dt">f3w</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">number</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span>{<span class="dt">label</span><span class="op">:</span> <span class="st">"Filter 2 Width"</span><span class="op">,</span> <span class="dt">width</span><span class="op">:</span> <span class="dv">75</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span>})</span>
-<span id="cb13-160"><a href="#cb13-160" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb13" data-startfrom="167" data-source-offset="-22"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 166;"><span id="cb13-167"><a href="#cb13-167" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;b&gt;Width&lt;/b&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-13" data-nodetype="declaration">
+<div>
+<div id="ojs-cell-13-1" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb14" data-startfrom="168" data-source-offset="-41"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 167;"><span id="cb14-168"><a href="#cb14-168" aria-hidden="true" tabindex="-1"></a>viewof f1w <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">number</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span>{<span class="dt">value</span><span class="op">:</span> <span class="dv">16</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-13-2" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
 </div>
-<div class="g-col-4">
+</div>
+<div class="g-col-1">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb14" data-startfrom="166" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 165;"><span id="cb14-166"><a href="#cb14-166" aria-hidden="true" tabindex="-1"></a><span class="co">//Filter Height Inputs</span></span>
-<span id="cb14-167"><a href="#cb14-167" aria-hidden="true" tabindex="-1"></a>viewof filtH <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">form</span>({</span>
-<span id="cb14-168"><a href="#cb14-168" aria-hidden="true" tabindex="-1"></a>    <span class="dt">f1h</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">number</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span>{<span class="dt">label</span><span class="op">:</span> <span class="st">"Filter 1 Height"</span><span class="op">,</span> <span class="dt">width</span><span class="op">:</span> <span class="dv">75</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">20</span>})<span class="op">,</span></span>
-<span id="cb14-169"><a href="#cb14-169" aria-hidden="true" tabindex="-1"></a>    <span class="dt">f2h</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">number</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span>{<span class="dt">label</span><span class="op">:</span> <span class="st">"Filter 2 Height"</span><span class="op">,</span> <span class="dt">width</span><span class="op">:</span> <span class="dv">75</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span>})<span class="op">,</span></span>
-<span id="cb14-170"><a href="#cb14-170" aria-hidden="true" tabindex="-1"></a>    <span class="dt">f3h</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">number</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span>{<span class="dt">label</span><span class="op">:</span> <span class="st">"Filter 3 Height"</span><span class="op">,</span> <span class="dt">width</span><span class="op">:</span> <span class="dv">75</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span>})</span>
-<span id="cb14-171"><a href="#cb14-171" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb15" data-startfrom="173" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 172;"><span id="cb15-173"><a href="#cb15-173" aria-hidden="true" tabindex="-1"></a><span class="co">//Filter Inputs</span></span>
+<span id="cb15-174"><a href="#cb15-174" aria-hidden="true" tabindex="-1"></a>f1A <span class="op">=</span> f1h <span class="op">*</span> f1w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-14" data-nodetype="declaration">
 
@@ -649,23 +661,17 @@ Important
 </div>
 </div>
 </div>
-<div class="g-col-4">
+<div class="g-col-3">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb15" data-startfrom="179" data-source-offset="-22"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 178;"><span id="cb15-179"><a href="#cb15-179" aria-hidden="true" tabindex="-1"></a>f1A <span class="op">=</span> filtW<span class="op">.</span><span class="at">f1w</span> <span class="op">*</span> filtH<span class="op">.</span><span class="at">f1h</span><span class="op">;</span></span>
-<span id="cb15-180"><a href="#cb15-180" aria-hidden="true" tabindex="-1"></a>f2A <span class="op">=</span> filtW<span class="op">.</span><span class="at">f2w</span> <span class="op">*</span> filtH<span class="op">.</span><span class="at">f2h</span><span class="op">;</span></span>
-<span id="cb15-181"><a href="#cb15-181" aria-hidden="true" tabindex="-1"></a>f3A <span class="op">=</span> filtW<span class="op">.</span><span class="at">f3w</span> <span class="op">*</span> filtH<span class="op">.</span><span class="at">f3h</span><span class="op">;</span></span>
-<span id="cb15-182"><a href="#cb15-182" aria-hidden="true" tabindex="-1"></a>viewof filtA <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">form</span>({</span>
-<span id="cb15-183"><a href="#cb15-183" aria-hidden="true" tabindex="-1"></a>    <span class="dt">f1aR</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">number</span>({<span class="dt">value</span><span class="op">:</span> f1A<span class="op">,</span> <span class="dt">disabled</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Filter 1 Area"</span><span class="op">,</span> <span class="dt">width</span><span class="op">:</span> <span class="dv">75</span>})<span class="op">,</span></span>
-<span id="cb15-184"><a href="#cb15-184" aria-hidden="true" tabindex="-1"></a>    <span class="dt">f2aR</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">number</span>({<span class="dt">value</span><span class="op">:</span> f2A<span class="op">,</span> <span class="dt">disabled</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Filter 2 Area"</span><span class="op">,</span> <span class="dt">width</span><span class="op">:</span> <span class="dv">75</span>})<span class="op">,</span></span>
-<span id="cb15-185"><a href="#cb15-185" aria-hidden="true" tabindex="-1"></a>    <span class="dt">f3aR</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">number</span>({<span class="dt">value</span><span class="op">:</span> f3A<span class="op">,</span> <span class="dt">disabled</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Filter 3 Area"</span><span class="op">,</span> <span class="dt">width</span><span class="op">:</span> <span class="dv">75</span>})</span>
-<span id="cb15-186"><a href="#cb15-186" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb16" data-startfrom="182" data-source-offset="-23"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 181;"><span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;b&gt;Height&lt;/b&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-15-1" data-nodetype="declaration">
+<div id="ojs-cell-15-1" data-nodetype="expression">
 
 </div>
 </div>
 </div>
+<div class="sourceCode cell-code hidden" id="cb17" data-startfrom="183" data-source-offset="-43"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 182;"><span id="cb17-183"><a href="#cb17-183" aria-hidden="true" tabindex="-1"></a>viewof f1h <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">number</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span>{<span class="dt">value</span><span class="op">:</span> <span class="dv">16</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-15-2" data-nodetype="declaration">
@@ -673,32 +679,211 @@ Important
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="g-col-1">
+
+</div>
+<div class="g-col-3">
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb18" data-startfrom="192" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 191;"><span id="cb18-192"><a href="#cb18-192" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;b&gt;Area&lt;/b&gt;`</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-15-3" data-nodetype="declaration">
+<div id="ojs-cell-16-1" data-nodetype="expression">
 
 </div>
 </div>
 </div>
+<div class="sourceCode cell-code hidden" id="cb19" data-startfrom="193" data-source-offset="-19"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 192;"><span id="cb19-193"><a href="#cb19-193" aria-hidden="true" tabindex="-1"></a>viewof f1Ta <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">number</span>({<span class="dt">value</span><span class="op">:</span> f1A<span class="op">,</span> <span class="dt">disabled</span><span class="op">:</span> <span class="kw">true</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-15-4" data-nodetype="declaration">
+<div id="ojs-cell-16-2" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
 </div>
+</div>
+<div class="g-col-1">
+
 </div>
 </div>
 <hr>
+</section>
+<section id="filter-2-size" class="level5">
+<h5 class="anchored" data-anchor-id="filter-2-size">Filter 2 Size</h5>
+<div class="grid">
+<div class="g-col-3">
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb20" data-startfrom="209" data-source-offset="-22"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 208;"><span id="cb20-209"><a href="#cb20-209" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;b&gt;Width&lt;/b&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-17-1" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb21" data-startfrom="210" data-source-offset="-41"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 209;"><span id="cb21-210"><a href="#cb21-210" aria-hidden="true" tabindex="-1"></a>viewof f2w <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">number</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span>{<span class="dt">value</span><span class="op">:</span> <span class="dv">16</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-17-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1">
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb22" data-startfrom="215" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 214;"><span id="cb22-215"><a href="#cb22-215" aria-hidden="true" tabindex="-1"></a><span class="co">//Filter Inputs</span></span>
+<span id="cb22-216"><a href="#cb22-216" aria-hidden="true" tabindex="-1"></a>f2A <span class="op">=</span> f2h <span class="op">*</span> f2w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-18" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-3">
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb23" data-startfrom="224" data-source-offset="-23"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 223;"><span id="cb23-224"><a href="#cb23-224" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;b&gt;Height&lt;/b&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-19-1" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb24" data-startfrom="225" data-source-offset="-43"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 224;"><span id="cb24-225"><a href="#cb24-225" aria-hidden="true" tabindex="-1"></a>viewof f2h <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">number</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span>{<span class="dt">value</span><span class="op">:</span> <span class="dv">16</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-19-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1">
+
+</div>
+<div class="g-col-3">
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb25" data-startfrom="234" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 233;"><span id="cb25-234"><a href="#cb25-234" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;b&gt;Area&lt;/b&gt;`</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-20-1" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb26" data-startfrom="235" data-source-offset="-19"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 234;"><span id="cb26-235"><a href="#cb26-235" aria-hidden="true" tabindex="-1"></a>viewof f2Ta <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">number</span>({<span class="dt">value</span><span class="op">:</span> f1A<span class="op">,</span> <span class="dt">disabled</span><span class="op">:</span> <span class="kw">true</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-20-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1">
+
+</div>
+</div>
+<hr>
+</section>
+<section id="filter-3-size" class="level5">
+<h5 class="anchored" data-anchor-id="filter-3-size">Filter 3 Size</h5>
+<div class="grid">
+<div class="g-col-3">
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb27" data-startfrom="251" data-source-offset="-22"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 250;"><span id="cb27-251"><a href="#cb27-251" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;b&gt;Width&lt;/b&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-21-1" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb28" data-startfrom="252" data-source-offset="-41"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 251;"><span id="cb28-252"><a href="#cb28-252" aria-hidden="true" tabindex="-1"></a>viewof f3w <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">number</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span>{<span class="dt">value</span><span class="op">:</span> <span class="dv">16</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-21-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1">
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb29" data-startfrom="257" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 256;"><span id="cb29-257"><a href="#cb29-257" aria-hidden="true" tabindex="-1"></a><span class="co">//Filter Inputs</span></span>
+<span id="cb29-258"><a href="#cb29-258" aria-hidden="true" tabindex="-1"></a>f3A <span class="op">=</span> f3h <span class="op">*</span> f3w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-22" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-3">
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb30" data-startfrom="266" data-source-offset="-23"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 265;"><span id="cb30-266"><a href="#cb30-266" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;b&gt;Height&lt;/b&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-23-1" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb31" data-startfrom="267" data-source-offset="-43"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 266;"><span id="cb31-267"><a href="#cb31-267" aria-hidden="true" tabindex="-1"></a>viewof f3h <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">number</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span>{<span class="dt">value</span><span class="op">:</span> <span class="dv">16</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-23-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1">
+
+</div>
+<div class="g-col-3">
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb32" data-startfrom="276" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 275;"><span id="cb32-276"><a href="#cb32-276" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;b&gt;Area&lt;/b&gt;`</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-24-1" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb33" data-startfrom="277" data-source-offset="-19"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 276;"><span id="cb33-277"><a href="#cb33-277" aria-hidden="true" tabindex="-1"></a>viewof f3Ta <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">number</span>({<span class="dt">value</span><span class="op">:</span> f1A<span class="op">,</span> <span class="dt">disabled</span><span class="op">:</span> <span class="kw">true</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-24-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="g-col-1">
+
+</div>
+</div>
+<hr>
+</section>
 <div class="grid">
 <section id="total-filter-area" class="level5 g-col-6">
 <h5 class="anchored" data-anchor-id="total-filter-area"><span class="smallcaps">Total Filter Area</span></h5>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb16" data-startfrom="197" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 196;"><span id="cb16-197"><a href="#cb16-197" aria-hidden="true" tabindex="-1"></a><span class="co">//Show Total Filter Area</span></span>
-<span id="cb16-198"><a href="#cb16-198" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`  </span><span class="sc">${</span>fT<span class="sc">}</span><span class="vs"> sq in`</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb34" data-startfrom="291" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 290;"><span id="cb34-291"><a href="#cb34-291" aria-hidden="true" tabindex="-1"></a><span class="co">//Show Total Filter Area</span></span>
+<span id="cb34-292"><a href="#cb34-292" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`  </span><span class="sc">${</span>fT<span class="sc">}</span><span class="vs"> sq in`</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-16" data-nodetype="expression">
+<div id="ojs-cell-25" data-nodetype="expression">
 
 </div>
 </div>
@@ -707,10 +892,10 @@ Important
 <section id="maximum-cfm" class="level5 g-col-6">
 <h5 class="anchored" data-anchor-id="maximum-cfm"><span class="smallcaps">Maximum CFM</span></h5>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb17" data-startfrom="206" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 205;"><span id="cb17-206"><a href="#cb17-206" aria-hidden="true" tabindex="-1"></a><span class="co">//Show Maximum CFM Based on Filter Area</span></span>
-<span id="cb17-207"><a href="#cb17-207" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`  </span><span class="sc">${</span>fTcfmMax<span class="sc">}</span><span class="vs">cfm`</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb35" data-startfrom="300" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 299;"><span id="cb35-300"><a href="#cb35-300" aria-hidden="true" tabindex="-1"></a><span class="co">//Show Maximum CFM Based on Filter Area</span></span>
+<span id="cb35-301"><a href="#cb35-301" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`  </span><span class="sc">${</span>fTcfmMax<span class="sc">}</span><span class="vs">cfm`</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-17" data-nodetype="expression">
+<div id="ojs-cell-26" data-nodetype="expression">
 
 </div>
 </div>
@@ -723,41 +908,41 @@ Important
 <section id="filter-performance-report" class="level2">
 <h2 class="anchored" data-anchor-id="filter-performance-report">Filter Performance Report</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb18" data-startfrom="219" data-source-offset="-46"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 218;"><span id="cb18-219"><a href="#cb18-219" aria-hidden="true" tabindex="-1"></a>filtPerfGrade <span class="op">=</span> </span>
-<span id="cb18-220"><a href="#cb18-220" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb18-221"><a href="#cb18-221" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(fV <span class="op">&gt;=</span> <span class="dv">500</span>) { </span>
-<span id="cb18-222"><a href="#cb18-222" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="st">"Worst - Additional Filters Required"</span>)</span>
-<span id="cb18-223"><a href="#cb18-223" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb18-224"><a href="#cb18-224" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span>(filtExcessVelocity <span class="op">&gt;=</span> <span class="dv">85</span>) { </span>
-<span id="cb18-225"><a href="#cb18-225" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="st">"Poor"</span>)</span>
-<span id="cb18-226"><a href="#cb18-226" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(filtExcessVelocity <span class="op">&gt;=</span> <span class="dv">30</span>) { </span>
-<span id="cb18-227"><a href="#cb18-227" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="st">"Average"</span>)</span>
-<span id="cb18-228"><a href="#cb18-228" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(filtExcessVelocity <span class="op">&gt;=</span> <span class="dv">3</span>) { </span>
-<span id="cb18-229"><a href="#cb18-229" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="st">"Good"</span>)</span>
-<span id="cb18-230"><a href="#cb18-230" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { </span>
-<span id="cb18-231"><a href="#cb18-231" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="st">"Excellent"</span>)</span>
-<span id="cb18-232"><a href="#cb18-232" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb18-233"><a href="#cb18-233" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
-<span id="cb18-234"><a href="#cb18-234" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`### Filter Performance Based on Velocity:  **</span><span class="sc">${</span>filtPerfGrade<span class="sc">}</span><span class="vs">**`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb36" data-startfrom="313" data-source-offset="-46"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 312;"><span id="cb36-313"><a href="#cb36-313" aria-hidden="true" tabindex="-1"></a>filtPerfGrade <span class="op">=</span> </span>
+<span id="cb36-314"><a href="#cb36-314" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb36-315"><a href="#cb36-315" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(fV <span class="op">&gt;=</span> <span class="dv">500</span>) { </span>
+<span id="cb36-316"><a href="#cb36-316" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="st">"Worst - Additional Filters Required"</span>)</span>
+<span id="cb36-317"><a href="#cb36-317" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb36-318"><a href="#cb36-318" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span>(filtExcessVelocity <span class="op">&gt;=</span> <span class="dv">85</span>) { </span>
+<span id="cb36-319"><a href="#cb36-319" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="st">"Poor"</span>)</span>
+<span id="cb36-320"><a href="#cb36-320" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(filtExcessVelocity <span class="op">&gt;=</span> <span class="dv">30</span>) { </span>
+<span id="cb36-321"><a href="#cb36-321" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="st">"Average"</span>)</span>
+<span id="cb36-322"><a href="#cb36-322" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(filtExcessVelocity <span class="op">&gt;=</span> <span class="dv">3</span>) { </span>
+<span id="cb36-323"><a href="#cb36-323" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="st">"Good"</span>)</span>
+<span id="cb36-324"><a href="#cb36-324" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { </span>
+<span id="cb36-325"><a href="#cb36-325" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="st">"Excellent"</span>)</span>
+<span id="cb36-326"><a href="#cb36-326" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb36-327"><a href="#cb36-327" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb36-328"><a href="#cb36-328" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`### Filter Performance Based on Velocity:  **</span><span class="sc">${</span>filtPerfGrade<span class="sc">}</span><span class="vs">**`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-18-1" data-nodetype="declaration">
+<div id="ojs-cell-27-1" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-18-2" data-nodetype="expression">
+<div id="ojs-cell-27-2" data-nodetype="expression">
 
 </div>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb19" data-startfrom="237" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 236;"><span id="cb19-237"><a href="#cb19-237" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`#### Air Velocity at Filter:  **</span><span class="sc">${</span>(fV)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs"> FPM**`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb37" data-startfrom="331" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 330;"><span id="cb37-331"><a href="#cb37-331" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`#### Air Velocity at Filter:  **</span><span class="sc">${</span>(fV)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs"> FPM**`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-19" data-nodetype="expression">
+<div id="ojs-cell-28" data-nodetype="expression">
 
 </div>
 </div>
@@ -776,9 +961,9 @@ Note
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb20" data-startfrom="245" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 244;"><span id="cb20-245"><a href="#cb20-245" aria-hidden="true" tabindex="-1"></a>fV <span class="op">=</span> minSysCFM <span class="op">/</span> (fT <span class="op">/</span> <span class="dv">144</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb38" data-startfrom="339" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 338;"><span id="cb38-339"><a href="#cb38-339" aria-hidden="true" tabindex="-1"></a>fV <span class="op">=</span> minSysCFM <span class="op">/</span> (fT <span class="op">/</span> <span class="dv">144</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-20" data-nodetype="declaration">
+<div id="ojs-cell-29" data-nodetype="declaration">
 
 </div>
 </div>
@@ -786,146 +971,146 @@ Note
 <section id="summary" class="level5">
 <h5 class="anchored" data-anchor-id="summary"><span class="smallcaps">Summary</span></h5>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb21" data-startfrom="251" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 250;"><span id="cb21-251"><a href="#cb21-251" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`**Air Velocity at Filter:  </span><span class="sc">${</span>(fV)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs"> FPM**`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-21" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb22" data-startfrom="255" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 254;"><span id="cb22-255"><a href="#cb22-255" aria-hidden="true" tabindex="-1"></a>filtExcessVelocity <span class="op">=</span> </span>
-<span id="cb22-256"><a href="#cb22-256" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb22-257"><a href="#cb22-257" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(filterThickness <span class="op">==</span> <span class="dv">1</span>) { </span>
-<span id="cb22-258"><a href="#cb22-258" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (fV <span class="op">-</span> <span class="dv">225</span>)</span>
-<span id="cb22-259"><a href="#cb22-259" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { </span>
-<span id="cb22-260"><a href="#cb22-260" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (fV <span class="op">-</span> <span class="dv">300</span>)</span>
-<span id="cb22-261"><a href="#cb22-261" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb22-262"><a href="#cb22-262" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-22" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb23" data-startfrom="266" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 265;"><span id="cb23-266"><a href="#cb23-266" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`**Air Velocity Over Recommended: </span><span class="sc">${</span>(filtExcessVelocity)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs"> FPM**`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-23" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb24" data-startfrom="271" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 270;"><span id="cb24-271"><a href="#cb24-271" aria-hidden="true" tabindex="-1"></a>fP1d <span class="op">=</span> (((fV <span class="op">-</span> <span class="dv">75</span>) <span class="op">/</span> <span class="dv">75</span>)) <span class="op">*</span> <span class="op">.</span><span class="bn">07</span><span class="op">;</span></span>
-<span id="cb24-272"><a href="#cb24-272" aria-hidden="true" tabindex="-1"></a>fP2d <span class="op">=</span> (((fV <span class="op">-</span> <span class="dv">75</span>) <span class="op">/</span> <span class="dv">75</span>)) <span class="op">*</span> <span class="op">.</span><span class="bn">045</span><span class="op">;</span></span>
-<span id="cb24-273"><a href="#cb24-273" aria-hidden="true" tabindex="-1"></a>fP4d <span class="op">=</span> (((fV <span class="op">-</span> <span class="dv">75</span>) <span class="op">/</span> <span class="dv">75</span>)) <span class="op">*</span> <span class="op">.</span><span class="bn">04</span><span class="op">;</span></span>
-<span id="cb24-274"><a href="#cb24-274" aria-hidden="true" tabindex="-1"></a>fP5d <span class="op">=</span> (((fV <span class="op">-</span> <span class="dv">75</span>) <span class="op">/</span> <span class="dv">75</span>)) <span class="op">*</span> <span class="op">.</span><span class="bn">03</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-24-1" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-24-2" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-24-3" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-24-4" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb25" data-startfrom="277" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 276;"><span id="cb25-277"><a href="#cb25-277" aria-hidden="true" tabindex="-1"></a>pDeltaEstimate <span class="op">=</span> </span>
-<span id="cb25-278"><a href="#cb25-278" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb25-279"><a href="#cb25-279" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(filterThickness <span class="op">==</span> <span class="dv">1</span>) { </span>
-<span id="cb25-280"><a href="#cb25-280" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (fP1d)</span>
-<span id="cb25-281"><a href="#cb25-281" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(filterThickness <span class="op">==</span> <span class="dv">2</span>) { </span>
-<span id="cb25-282"><a href="#cb25-282" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (fP2d)</span>
-<span id="cb25-283"><a href="#cb25-283" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(filterThickness <span class="op">==</span> <span class="dv">3</span>) { </span>
-<span id="cb25-284"><a href="#cb25-284" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (fP4d)</span>
-<span id="cb25-285"><a href="#cb25-285" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { </span>
-<span id="cb25-286"><a href="#cb25-286" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (fP5d)</span>
-<span id="cb25-287"><a href="#cb25-287" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb25-288"><a href="#cb25-288" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-25" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb26" data-startfrom="292" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 291;"><span id="cb26-292"><a href="#cb26-292" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`**Estimated Filter Pressure Drop:   </span><span class="sc">${</span>(pDeltaEstimate)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">3</span>})<span class="sc">}</span><span class="vs"> in. w.c.**`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-26" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb27" data-startfrom="296" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 295;"><span id="cb27-296"><a href="#cb27-296" aria-hidden="true" tabindex="-1"></a>addFilterArea <span class="op">=</span> </span>
-<span id="cb27-297"><a href="#cb27-297" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb27-298"><a href="#cb27-298" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(filterThickness <span class="op">==</span> <span class="dv">1</span>) { </span>
-<span id="cb27-299"><a href="#cb27-299" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (minfTA1 <span class="op">-</span> fT)</span>
-<span id="cb27-300"><a href="#cb27-300" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { </span>
-<span id="cb27-301"><a href="#cb27-301" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (minfTA <span class="op">-</span> fT)</span>
-<span id="cb27-302"><a href="#cb27-302" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb27-303"><a href="#cb27-303" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-27" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb28" data-startfrom="307" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 306;"><span id="cb28-307"><a href="#cb28-307" aria-hidden="true" tabindex="-1"></a>filtPerfGradePd <span class="op">=</span> </span>
-<span id="cb28-308"><a href="#cb28-308" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb28-309"><a href="#cb28-309" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(pDeltaEstimate <span class="op">&gt;=</span> <span class="fl">0.3</span>) { </span>
-<span id="cb28-310"><a href="#cb28-310" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="st">"Worst - Low System Efficiency"</span>)</span>
-<span id="cb28-311"><a href="#cb28-311" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb28-312"><a href="#cb28-312" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span>(pDeltaEstimate <span class="op">&gt;=</span> <span class="fl">0.22</span>) { </span>
-<span id="cb28-313"><a href="#cb28-313" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="st">"Poor"</span>)</span>
-<span id="cb28-314"><a href="#cb28-314" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(pDeltaEstimate <span class="op">&gt;=</span> <span class="fl">0.15</span>) { </span>
-<span id="cb28-315"><a href="#cb28-315" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="st">"Average"</span>)</span>
-<span id="cb28-316"><a href="#cb28-316" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(pDeltaEstimate <span class="op">&gt;=</span> <span class="fl">0.1</span>) { </span>
-<span id="cb28-317"><a href="#cb28-317" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="st">"Good"</span>)</span>
-<span id="cb28-318"><a href="#cb28-318" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { </span>
-<span id="cb28-319"><a href="#cb28-319" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="st">"Excellent"</span>)</span>
-<span id="cb28-320"><a href="#cb28-320" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb28-321"><a href="#cb28-321" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-28" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb29" data-startfrom="325" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 324;"><span id="cb29-325"><a href="#cb29-325" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`### Filter Performance Based on Pressure Drop: </span><span class="sc">${</span>filtPerfGradePd<span class="sc">}</span><span class="vs">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-29" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb30" data-startfrom="329" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 328;"><span id="cb30-329"><a href="#cb30-329" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`#### Estimated Filter Pressure Drop: **</span><span class="sc">${</span>(pDeltaEstimate)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">3</span>})<span class="sc">}</span><span class="vs"> in. w.c.**`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb39" data-startfrom="345" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 344;"><span id="cb39-345"><a href="#cb39-345" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`**Air Velocity at Filter:  </span><span class="sc">${</span>(fV)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs"> FPM**`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-30" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb40" data-startfrom="349" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 348;"><span id="cb40-349"><a href="#cb40-349" aria-hidden="true" tabindex="-1"></a>filtExcessVelocity <span class="op">=</span> </span>
+<span id="cb40-350"><a href="#cb40-350" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb40-351"><a href="#cb40-351" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(filterThickness <span class="op">==</span> <span class="dv">1</span>) { </span>
+<span id="cb40-352"><a href="#cb40-352" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (fV <span class="op">-</span> <span class="dv">225</span>)</span>
+<span id="cb40-353"><a href="#cb40-353" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { </span>
+<span id="cb40-354"><a href="#cb40-354" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (fV <span class="op">-</span> <span class="dv">300</span>)</span>
+<span id="cb40-355"><a href="#cb40-355" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb40-356"><a href="#cb40-356" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-31" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb41" data-startfrom="360" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 359;"><span id="cb41-360"><a href="#cb41-360" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`**Air Velocity Over Recommended: </span><span class="sc">${</span>(filtExcessVelocity)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs"> FPM**`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-32" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb42" data-startfrom="365" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 364;"><span id="cb42-365"><a href="#cb42-365" aria-hidden="true" tabindex="-1"></a>fP1d <span class="op">=</span> (((fV <span class="op">-</span> <span class="dv">75</span>) <span class="op">/</span> <span class="dv">75</span>)) <span class="op">*</span> <span class="op">.</span><span class="bn">07</span><span class="op">;</span></span>
+<span id="cb42-366"><a href="#cb42-366" aria-hidden="true" tabindex="-1"></a>fP2d <span class="op">=</span> (((fV <span class="op">-</span> <span class="dv">75</span>) <span class="op">/</span> <span class="dv">75</span>)) <span class="op">*</span> <span class="op">.</span><span class="bn">045</span><span class="op">;</span></span>
+<span id="cb42-367"><a href="#cb42-367" aria-hidden="true" tabindex="-1"></a>fP4d <span class="op">=</span> (((fV <span class="op">-</span> <span class="dv">75</span>) <span class="op">/</span> <span class="dv">75</span>)) <span class="op">*</span> <span class="op">.</span><span class="bn">04</span><span class="op">;</span></span>
+<span id="cb42-368"><a href="#cb42-368" aria-hidden="true" tabindex="-1"></a>fP5d <span class="op">=</span> (((fV <span class="op">-</span> <span class="dv">75</span>) <span class="op">/</span> <span class="dv">75</span>)) <span class="op">*</span> <span class="op">.</span><span class="bn">03</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-33-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-33-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-33-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-33-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb43" data-startfrom="371" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 370;"><span id="cb43-371"><a href="#cb43-371" aria-hidden="true" tabindex="-1"></a>pDeltaEstimate <span class="op">=</span> </span>
+<span id="cb43-372"><a href="#cb43-372" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb43-373"><a href="#cb43-373" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(filterThickness <span class="op">==</span> <span class="dv">1</span>) { </span>
+<span id="cb43-374"><a href="#cb43-374" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (fP1d)</span>
+<span id="cb43-375"><a href="#cb43-375" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(filterThickness <span class="op">==</span> <span class="dv">2</span>) { </span>
+<span id="cb43-376"><a href="#cb43-376" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (fP2d)</span>
+<span id="cb43-377"><a href="#cb43-377" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(filterThickness <span class="op">==</span> <span class="dv">3</span>) { </span>
+<span id="cb43-378"><a href="#cb43-378" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (fP4d)</span>
+<span id="cb43-379"><a href="#cb43-379" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { </span>
+<span id="cb43-380"><a href="#cb43-380" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (fP5d)</span>
+<span id="cb43-381"><a href="#cb43-381" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb43-382"><a href="#cb43-382" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-34" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb44" data-startfrom="386" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 385;"><span id="cb44-386"><a href="#cb44-386" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`**Estimated Filter Pressure Drop:   </span><span class="sc">${</span>(pDeltaEstimate)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">3</span>})<span class="sc">}</span><span class="vs"> in. w.c.**`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-35" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb45" data-startfrom="390" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 389;"><span id="cb45-390"><a href="#cb45-390" aria-hidden="true" tabindex="-1"></a>addFilterArea <span class="op">=</span> </span>
+<span id="cb45-391"><a href="#cb45-391" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb45-392"><a href="#cb45-392" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(filterThickness <span class="op">==</span> <span class="dv">1</span>) { </span>
+<span id="cb45-393"><a href="#cb45-393" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (minfTA1 <span class="op">-</span> fT)</span>
+<span id="cb45-394"><a href="#cb45-394" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { </span>
+<span id="cb45-395"><a href="#cb45-395" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (minfTA <span class="op">-</span> fT)</span>
+<span id="cb45-396"><a href="#cb45-396" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb45-397"><a href="#cb45-397" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-36" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb46" data-startfrom="401" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 400;"><span id="cb46-401"><a href="#cb46-401" aria-hidden="true" tabindex="-1"></a>filtPerfGradePd <span class="op">=</span> </span>
+<span id="cb46-402"><a href="#cb46-402" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb46-403"><a href="#cb46-403" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(pDeltaEstimate <span class="op">&gt;=</span> <span class="fl">0.3</span>) { </span>
+<span id="cb46-404"><a href="#cb46-404" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="st">"Worst - Low System Efficiency"</span>)</span>
+<span id="cb46-405"><a href="#cb46-405" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb46-406"><a href="#cb46-406" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span>(pDeltaEstimate <span class="op">&gt;=</span> <span class="fl">0.22</span>) { </span>
+<span id="cb46-407"><a href="#cb46-407" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="st">"Poor"</span>)</span>
+<span id="cb46-408"><a href="#cb46-408" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(pDeltaEstimate <span class="op">&gt;=</span> <span class="fl">0.15</span>) { </span>
+<span id="cb46-409"><a href="#cb46-409" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="st">"Average"</span>)</span>
+<span id="cb46-410"><a href="#cb46-410" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(pDeltaEstimate <span class="op">&gt;=</span> <span class="fl">0.1</span>) { </span>
+<span id="cb46-411"><a href="#cb46-411" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="st">"Good"</span>)</span>
+<span id="cb46-412"><a href="#cb46-412" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { </span>
+<span id="cb46-413"><a href="#cb46-413" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="st">"Excellent"</span>)</span>
+<span id="cb46-414"><a href="#cb46-414" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb46-415"><a href="#cb46-415" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-37" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb47" data-startfrom="419" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 418;"><span id="cb47-419"><a href="#cb47-419" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`### Filter Performance Based on Pressure Drop: </span><span class="sc">${</span>filtPerfGradePd<span class="sc">}</span><span class="vs">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-38" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb48" data-startfrom="423" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 422;"><span id="cb48-423"><a href="#cb48-423" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`#### Estimated Filter Pressure Drop: **</span><span class="sc">${</span>(pDeltaEstimate)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">3</span>})<span class="sc">}</span><span class="vs"> in. w.c.**`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-39" data-nodetype="expression">
 
 </div>
 </div>
@@ -942,90 +1127,7 @@ Note
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb31" data-startfrom="339" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 338;"><span id="cb31-339"><a href="#cb31-339" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`**Additional Filter Area Recommended:  </span><span class="sc">${</span>(addFilterArea)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs"> sq. in.**`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-31" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb32" data-startfrom="344" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 343;"><span id="cb32-344"><a href="#cb32-344" aria-hidden="true" tabindex="-1"></a>sqFiltSize <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(addFilterArea)</span>
-<span id="cb32-345"><a href="#cb32-345" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`**Additional Square Filter Size:  </span><span class="sc">${</span>(sqFiltSize)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x </span><span class="sc">${</span>(sqFiltSize)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" **`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-32-1" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-32-2" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-</div>
-<p>Some Equivalent Rectangular Filter Sizes</p>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb33" data-startfrom="350" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 349;"><span id="cb33-350"><a href="#cb33-350" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`8" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">8</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 8"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-33" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb34" data-startfrom="354" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 353;"><span id="cb34-354"><a href="#cb34-354" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`10" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">10</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 10"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-34" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb35" data-startfrom="358" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 357;"><span id="cb35-358"><a href="#cb35-358" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`12" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">12</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 12"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-35" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb36" data-startfrom="362" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 361;"><span id="cb36-362"><a href="#cb36-362" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`14" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">14</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 14"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-36" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb37" data-startfrom="366" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 365;"><span id="cb37-366"><a href="#cb37-366" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`16" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">16</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 16"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-37" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb38" data-startfrom="370" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 369;"><span id="cb38-370"><a href="#cb38-370" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`18" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">18</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 18"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-38" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb39" data-startfrom="374" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 373;"><span id="cb39-374"><a href="#cb39-374" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`20" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">20</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 20"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-39" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb40" data-startfrom="378" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 377;"><span id="cb40-378"><a href="#cb40-378" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`22" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">22</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 22"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb49" data-startfrom="433" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 432;"><span id="cb49-433"><a href="#cb49-433" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`**Additional Filter Area Recommended:  </span><span class="sc">${</span>(addFilterArea)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs"> sq. in.**`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-40" data-nodetype="expression">
 
@@ -1033,17 +1135,100 @@ Note
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb41" data-startfrom="382" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 381;"><span id="cb41-382"><a href="#cb41-382" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`24" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">24</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 24"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb50" data-startfrom="438" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 437;"><span id="cb50-438"><a href="#cb50-438" aria-hidden="true" tabindex="-1"></a>sqFiltSize <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(addFilterArea)</span>
+<span id="cb50-439"><a href="#cb50-439" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`**Additional Square Filter Size:  </span><span class="sc">${</span>(sqFiltSize)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x </span><span class="sc">${</span>(sqFiltSize)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" **`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-41" data-nodetype="expression">
+<div>
+<div id="ojs-cell-41-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-41-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+<p>Some Equivalent Rectangular Filter Sizes</p>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb51" data-startfrom="444" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 443;"><span id="cb51-444"><a href="#cb51-444" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`8" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">8</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 8"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-42" data-nodetype="expression">
 
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb42" data-startfrom="386" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 385;"><span id="cb42-386"><a href="#cb42-386" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`25" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">25</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 25"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb52" data-startfrom="448" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 447;"><span id="cb52-448"><a href="#cb52-448" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`10" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">10</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 10"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-42" data-nodetype="expression">
+<div id="ojs-cell-43" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb53" data-startfrom="452" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 451;"><span id="cb53-452"><a href="#cb53-452" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`12" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">12</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 12"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-44" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb54" data-startfrom="456" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 455;"><span id="cb54-456"><a href="#cb54-456" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`14" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">14</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 14"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-45" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb55" data-startfrom="460" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 459;"><span id="cb55-460"><a href="#cb55-460" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`16" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">16</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 16"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-46" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb56" data-startfrom="464" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 463;"><span id="cb56-464"><a href="#cb56-464" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`18" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">18</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 18"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-47" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb57" data-startfrom="468" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 467;"><span id="cb57-468"><a href="#cb57-468" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`20" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">20</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 20"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-48" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb58" data-startfrom="472" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 471;"><span id="cb58-472"><a href="#cb58-472" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`22" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">22</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 22"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-49" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb59" data-startfrom="476" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 475;"><span id="cb59-476"><a href="#cb59-476" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`24" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">24</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 24"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-50" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb60" data-startfrom="480" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 479;"><span id="cb60-480"><a href="#cb60-480" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`25" Wide Filter:  </span><span class="sc">${</span>(addFilterArea <span class="op">/</span> <span class="dv">25</span>)<span class="op">.</span><span class="fu">toLocaleString</span>(<span class="kw">undefined</span><span class="op">,</span> {<span class="dt">maximumFractionDigits</span><span class="op">:</span> <span class="dv">0</span>})<span class="sc">}</span><span class="vs">" x 25"`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-51" data-nodetype="expression">
 
 </div>
 </div>
@@ -1055,7 +1240,7 @@ Note
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vQUMgRm9ybSBJbnB1dHMgZm9yIFRvbm5hZ2UgYW5kIENGTSBwZXIgVG9uXG52aWV3b2YgYWNJbmZvID0gSW5wdXRzLmZvcm0oe1xuICB0b25zQWNTZWw6IElucHV0cy5yYWRpbyhbMzI1LCAzNTAsIDM3NSwgNDAwLCA0MjUsIDQ1MF0sIHtsYWJlbDogXCJTZWxlY3QgQ0ZNIHBlciBUb25cIiwgdmFsdWU6IDM1MFxuICB9KSxcbiAgY2ZtUGVyVG9uU2VsOiBJbnB1dHMucmFkaW8oWzEuNSwgMiwgMi41LCAzLCAzLjUsIDQsIDVdLCB7bGFiZWw6IFwiU2VsZWN0IFRvbnNcIiwgdmFsdWU6IDN9KVxufSk7XG4vL0FDIENGTSBGb3JtdWxhXG5hY0NmbSA9IChhY0luZm8uY2ZtUGVyVG9uU2VsICogYWNJbmZvLnRvbnNBY1NlbCk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvL1Nob3cgQ0ZNXG5tZGAke2FjQ2ZtfSBjZm0gdG90YWwgQUNgXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvL0Z1cm5hY2UgY2hlY2tib3ggYW5kIHRlc3QgdG8gSW5jbHVkZSBGdXJuYWNlIC0gQW5kIE5vdGlmaWNhdGlvbiBmdXJuYWNlIENGTSB3aWxsIGJlIHVzZWRcbnZpZXdvZiBmdXJuID0gSW5wdXRzLnRvZ2dsZSh7bGFiZWw6IFwiRnVybmFjZVwifSk7XG55ZXNmdXJuID0gXCJHYXMgSGVhdGluZyBDRk0gd2lsbCBiZSBDYWxjdWxhdGVkXCJcbm5vZnVybiA9IFwiR2FzIEhlYXRpbmcgQ0ZNIHdpbGwgYmUgc2V0IHRvIFplcm8gLSBPbmx5IEFDIENGTSB3aWxsIGJlIFVzZWRcIjtcbmZ1cm5UcnVlID0gXG57XG4gIGlmKGZ1cm4gPT0gdHJ1ZSkgeyBcbiAgICByZXR1cm4geWVzZnVyblxuICB9IGVsc2UgeyBcbiAgICByZXR1cm4gbm9mdXJuXG4gIH1cbn07XG5ub2Z1cm5DRk0gPSAwXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvL0Z1cm5hY2UgSW5wdXQgQlRVXG52aWV3b2YgZnVybkluQlRVID0gSW5wdXRzLm51bWJlcihbMjAwMDAsIDIwMDAwMF0se1xuICBsYWJlbDogXCJGdXJuYWNlIElucHV0IEJUVS9oXCIsXG4gIHZhbHVlOiA4MDAwMCxcbiAgc3RlcDogMTAwMCxcbiAgd2lkdGg6IDEwMFxufSk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvL0Z1cm5hY2UgRWZmaWNpZW5jeVxudmlld29mIGZ1cm5FZmYgPSBJbnB1dHMubnVtYmVyKFsuNjAsIDEuMDBdLHtcbiAgbGFiZWw6IFwiRnVybmFjZSBFZmZpY2llbmN5XCIsXG4gIHZhbHVlOiAuODAsXG4gIHN0ZXA6IC4wMSxcbiAgd2lkdGg6IDEwMFxufSk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTYiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvL0Z1cm5hY2UgRGVsdGFcbnZpZXdvZiBmdXJuTWF4RGVsdGEgPSBJbnB1dHMucmFkaW8oWzMwLCAzNSwgNDAsIDQ1LCA1MCwgNTUsIDYwLCA2NV0sIHtcbiAgbGFiZWw6IFwiRnVybmFjZSBNYXggVGVtcGVyYXR1cmUgUmlzZVwiLCBcbiAgdmFsdWU6IDUwXG59KTtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vUmV0dXJuIEZ1cm5hY2UgQ0ZNIGlzIGJlaW5nIGNvbnNpZGVyZWQgaW4gY2FsY3VsYXRpb25zIFxubWRgKk5vdGU6ICR7ZnVyblRydWV9KmA7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTgiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvL1JldHVybiBGdXJuYWNlIENGTSBhcyBjYWxjdWxhdGVkIGJhc2VkIG9uIElucHV0c1xuZnVybk91dEJUVSA9IGZ1cm5JbkJUVSAqIGZ1cm5FZmY7XG5oZWF0Q0ZNID0gZnVybk91dEJUVSAvICgxLjA4ICogZnVybk1heERlbHRhKTtcbm1kYEZ1cm5hY2UgTWluaW11bSBDRk06ICR7KGZ1cm5NaW5DRk0pLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfSBDRk1gO1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC05IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy9SZXR1cm4gRGVzaWduIENGTSBiZWluZyB1c2VkIGZvciBDYWxjdWxhdGlvbnNcbm1kYE1pbmltdW0gQ0ZNOiAkeyhtaW5TeXNDRk0pLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfSBDRk1gO1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xMCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBmaWx0ZXJUaGlja25lc3MgPSBJbnB1dHMuc2VsZWN0KFsxLCAyLCA0LCA1XSwge2xhYmVsOiBcIlNlbGVjdCBGaWx0ZXIgVGhpY2tuZXNzXCIsIHZhbHVlOiAyLCB3aWR0aDogNzV9KVxuXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTExIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy9Gb3JtdWxhcyBSZWxhdGVkIHRvIFRvdGFsIFN5c3RlbSBhbmQgQWlyZmxvdyBDYWxjdWxhdGlvbnNcbi8vTWluaW11bSBEdWN0IGFuZCBGaWx0ZXIgU2l6ZXMgZm9yIEFDXG5taW5mVEFjID0gYWNDZm0gLyAyO1xubWluckRBYyA9IChhY0NmbSAvIDQuODYpO1xubWluc0RBYyA9IGFjQ2ZtIC8gNi41O1xuLy9NaW5pbXVtIER1Y3QgYW5kIEZpbHRlciBTaXplcyBmb3IgSGVhdGluZ1xubWluZlRBaCA9IGZ1cm5NaW5DRk0gLyAyO1xubWluckRBaCA9IChmdXJuTWluQ0ZNIC8gNC44Nik7XG5taW5zREFoID0gZnVybk1pbkNGTSAvIDYuNTtcbi8vRmlsdGVyIFRvdGFsc1xuZlRjZm1NYXggPSBmVCAqIDI7IFxuZlQgPSBmM0EgKyBmMkEgKyBmMUE7XG4vL01pbmltdW0gRHVjdCBhbmQgRmlsdGVyIFNpemVzIEJhc2VkIG9uIERlc2lnbiBDRk1cbm1pbmZUQSA9IG1pblN5c0NGTSAvICgzMDAgLyAxNDQpO1xubWluZlRBMSA9IG1pblN5c0NGTSAvICgyMjUgLyAxNDQpO1xubWluckRBID0gKG1pblN5c0NGTSAvIDQuODYpO1xubWluc0RBID0gbWluU3lzQ0ZNIC8gNi41O1xuLy9NYXRoZW1hdGljYWwgY29uc3RhbnRzXG5waSA9IDMuMTQxXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTEyIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy9DYWxjdWxhdGUgRGVzaWduIENGTSBCYXNlZCBvbiBIaWdoZXIgb2YgRnVybmFjZSBvciBBQ1xuZnVybk1pbkNGTSA9IFxue1xuICBpZihmdXJuID09IHRydWUpIHsgXG4gICAgcmV0dXJuIGhlYXRDRk1cbiAgfSBlbHNlIHsgXG4gICAgcmV0dXJuIG5vZnVybkNGTVxuICB9XG59O1xubWluU3lzQ0ZNID0gXG57XG4gIGlmKGFjQ2ZtID4gZnVybk1pbkNGTSkgeyBcbiAgICByZXR1cm4gYWNDZm1cbiAgfSBlbHNlIHsgXG4gICAgcmV0dXJuIGZ1cm5NaW5DRk1cbiAgfVxufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vRmlsdGVyIFdpZHRoIElucHV0c1xudmlld29mIGZpbHRXID0gSW5wdXRzLmZvcm0oe1xuICAgIGYxdzogSW5wdXRzLm51bWJlcihbMCwgNjBdLHtsYWJlbDogXCJGaWx0ZXIgMSBXaWR0aFwiLCB3aWR0aDogNzUsIHZhbHVlOiAxNn0pLFxuICAgIGYydzogSW5wdXRzLm51bWJlcihbMCwgNjBdLHtsYWJlbDogXCJGaWx0ZXIgMiBXaWR0aFwiLCB3aWR0aDogNzUsIHZhbHVlOiAwfSksXG4gICAgZjN3OiBJbnB1dHMubnVtYmVyKFswLCA2MF0se2xhYmVsOiBcIkZpbHRlciAyIFdpZHRoXCIsIHdpZHRoOiA3NSwgdmFsdWU6IDB9KVxufSk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTE0IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy9GaWx0ZXIgSGVpZ2h0IElucHV0c1xudmlld29mIGZpbHRIID0gSW5wdXRzLmZvcm0oe1xuICAgIGYxaDogSW5wdXRzLm51bWJlcihbMCwgNjBdLHtsYWJlbDogXCJGaWx0ZXIgMSBIZWlnaHRcIiwgd2lkdGg6IDc1LCB2YWx1ZTogMjB9KSxcbiAgICBmMmg6IElucHV0cy5udW1iZXIoWzAsIDYwXSx7bGFiZWw6IFwiRmlsdGVyIDIgSGVpZ2h0XCIsIHdpZHRoOiA3NSwgdmFsdWU6IDB9KSxcbiAgICBmM2g6IElucHV0cy5udW1iZXIoWzAsIDYwXSx7bGFiZWw6IFwiRmlsdGVyIDMgSGVpZ2h0XCIsIHdpZHRoOiA3NSwgdmFsdWU6IDB9KVxufSk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTE1IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy9GaWx0ZXIgQXJlYSBSZXN1bHRzXG5mMUEgPSBmaWx0Vy5mMXcgKiBmaWx0SC5mMWg7XG5mMkEgPSBmaWx0Vy5mMncgKiBmaWx0SC5mMmg7XG5mM0EgPSBmaWx0Vy5mM3cgKiBmaWx0SC5mM2g7XG52aWV3b2YgZmlsdEEgPSBJbnB1dHMuZm9ybSh7XG4gICAgZjFhUjogSW5wdXRzLm51bWJlcih7dmFsdWU6IGYxQSwgZGlzYWJsZWQ6IHRydWUsIGxhYmVsOiBcIkZpbHRlciAxIEFyZWFcIiwgd2lkdGg6IDc1fSksXG4gICAgZjJhUjogSW5wdXRzLm51bWJlcih7dmFsdWU6IGYyQSwgZGlzYWJsZWQ6IHRydWUsIGxhYmVsOiBcIkZpbHRlciAyIEFyZWFcIiwgd2lkdGg6IDc1fSksXG4gICAgZjNhUjogSW5wdXRzLm51bWJlcih7dmFsdWU6IGYzQSwgZGlzYWJsZWQ6IHRydWUsIGxhYmVsOiBcIkZpbHRlciAzIEFyZWFcIiwgd2lkdGg6IDc1fSlcbn0pO1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xNiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vU2hvdyBUb3RhbCBGaWx0ZXIgQXJlYVxubWRgICAke2ZUfSBzcSBpbmA7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTE3IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy9TaG93IE1heGltdW0gQ0ZNIEJhc2VkIG9uIEZpbHRlciBBcmVhXG5tZGAgICR7ZlRjZm1NYXh9Y2ZtYDtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMTgiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvL1dyaXR0ZW4gUGVyZm9ybWFuY2UgR3JhZGUgQmFzZWQgb24gVmVsb2NpdHlcbmZpbHRQZXJmR3JhZGUgPSBcbntcbiAgaWYoZlYgPj0gNTAwKSB7IFxuICAgIHJldHVybiAoXCJXb3JzdCAtIEFkZGl0aW9uYWwgRmlsdGVycyBSZXF1aXJlZFwiKVxuICB9XG4gICAgZWxzZSBpZihmaWx0RXhjZXNzVmVsb2NpdHkgPj0gODUpIHsgXG4gICAgICByZXR1cm4gKFwiUG9vclwiKVxuICB9IGVsc2UgaWYoZmlsdEV4Y2Vzc1ZlbG9jaXR5ID49IDMwKSB7IFxuICAgICAgcmV0dXJuIChcIkF2ZXJhZ2VcIilcbiAgfSBlbHNlIGlmKGZpbHRFeGNlc3NWZWxvY2l0eSA+PSAzKSB7IFxuICAgICAgcmV0dXJuIChcIkdvb2RcIilcbiAgfSBlbHNlIHsgXG4gICAgcmV0dXJuIChcIkV4Y2VsbGVudFwiKVxuICB9XG59O1xubWRgIyMjIEZpbHRlciBQZXJmb3JtYW5jZSBCYXNlZCBvbiBWZWxvY2l0eTogICoqJHtmaWx0UGVyZkdyYWRlfSoqYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xOSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im1kYCMjIyMgQWlyIFZlbG9jaXR5IGF0IEZpbHRlcjogICoqJHsoZlYpLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfSBGUE0qKmBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMjAiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJmViA9IG1pblN5c0NGTSAvIChmVCAvIDE0NClcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMjEiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJtZGAqKkFpciBWZWxvY2l0eSBhdCBGaWx0ZXI6ICAkeyhmVikudG9Mb2NhbGVTdHJpbmcodW5kZWZpbmVkLCB7bWF4aW11bUZyYWN0aW9uRGlnaXRzOiAwfSl9IEZQTSoqYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImZpbHRFeGNlc3NWZWxvY2l0eSA9IFxue1xuICBpZihmaWx0ZXJUaGlja25lc3MgPT0gMSkgeyBcbiAgICByZXR1cm4gKGZWIC0gMjI1KVxuICB9IGVsc2UgeyBcbiAgICByZXR1cm4gKGZWIC0gMzAwKVxuICB9XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIzIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibWRgKipBaXIgVmVsb2NpdHkgT3ZlciBSZWNvbW1lbmRlZDogJHsoZmlsdEV4Y2Vzc1ZlbG9jaXR5KS50b0xvY2FsZVN0cmluZyh1bmRlZmluZWQsIHttYXhpbXVtRnJhY3Rpb25EaWdpdHM6IDB9KX0gRlBNKipgXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTI0IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZlAxZCA9ICgoKGZWIC0gNzUpIC8gNzUpKSAqIC4wNztcbmZQMmQgPSAoKChmViAtIDc1KSAvIDc1KSkgKiAuMDQ1O1xuZlA0ZCA9ICgoKGZWIC0gNzUpIC8gNzUpKSAqIC4wNDtcbmZQNWQgPSAoKChmViAtIDc1KSAvIDc1KSkgKiAuMDNcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMjUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJwRGVsdGFFc3RpbWF0ZSA9IFxue1xuICBpZihmaWx0ZXJUaGlja25lc3MgPT0gMSkgeyBcbiAgICByZXR1cm4gKGZQMWQpXG4gIH0gZWxzZSBpZihmaWx0ZXJUaGlja25lc3MgPT0gMikgeyBcbiAgICAgIHJldHVybiAoZlAyZClcbiAgfSBlbHNlIGlmKGZpbHRlclRoaWNrbmVzcyA9PSAzKSB7IFxuICAgICAgcmV0dXJuIChmUDRkKVxuICB9IGVsc2UgeyBcbiAgICByZXR1cm4gKGZQNWQpXG4gIH1cbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMjYiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJtZGAqKkVzdGltYXRlZCBGaWx0ZXIgUHJlc3N1cmUgRHJvcDogICAkeyhwRGVsdGFFc3RpbWF0ZSkudG9Mb2NhbGVTdHJpbmcodW5kZWZpbmVkLCB7bWF4aW11bUZyYWN0aW9uRGlnaXRzOiAzfSl9IGluLiB3LmMuKipgXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTI3IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiYWRkRmlsdGVyQXJlYSA9IFxue1xuICBpZihmaWx0ZXJUaGlja25lc3MgPT0gMSkgeyBcbiAgICByZXR1cm4gKG1pbmZUQTEgLSBmVClcbiAgfSBlbHNlIHsgXG4gICAgcmV0dXJuIChtaW5mVEEgLSBmVClcbiAgfVxufTtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMjgiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJmaWx0UGVyZkdyYWRlUGQgPSBcbntcbiAgaWYocERlbHRhRXN0aW1hdGUgPj0gMC4zKSB7IFxuICAgIHJldHVybiAoXCJXb3JzdCAtIExvdyBTeXN0ZW0gRWZmaWNpZW5jeVwiKVxuICB9XG4gICAgZWxzZSBpZihwRGVsdGFFc3RpbWF0ZSA+PSAwLjIyKSB7IFxuICAgICAgcmV0dXJuIChcIlBvb3JcIilcbiAgfSBlbHNlIGlmKHBEZWx0YUVzdGltYXRlID49IDAuMTUpIHsgXG4gICAgICByZXR1cm4gKFwiQXZlcmFnZVwiKVxuICB9IGVsc2UgaWYocERlbHRhRXN0aW1hdGUgPj0gMC4xKSB7IFxuICAgICAgcmV0dXJuIChcIkdvb2RcIilcbiAgfSBlbHNlIHsgXG4gICAgcmV0dXJuIChcIkV4Y2VsbGVudFwiKVxuICB9XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTI5IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibWRgIyMjIEZpbHRlciBQZXJmb3JtYW5jZSBCYXNlZCBvbiBQcmVzc3VyZSBEcm9wOiAke2ZpbHRQZXJmR3JhZGVQZH1gXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMwIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibWRgIyMjIyBFc3RpbWF0ZWQgRmlsdGVyIFByZXNzdXJlIERyb3A6ICoqJHsocERlbHRhRXN0aW1hdGUpLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogM30pfSBpbi4gdy5jLioqYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im1kYCoqQWRkaXRpb25hbCBGaWx0ZXIgQXJlYSBSZWNvbW1lbmRlZDogICR7KGFkZEZpbHRlckFyZWEpLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfSBzcS4gaW4uKipgXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMyIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoic3FGaWx0U2l6ZSA9IE1hdGguc3FydChhZGRGaWx0ZXJBcmVhKVxubWRgKipBZGRpdGlvbmFsIFNxdWFyZSBGaWx0ZXIgU2l6ZTogICR7KHNxRmlsdFNpemUpLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfVwiIHggJHsoc3FGaWx0U2l6ZSkudG9Mb2NhbGVTdHJpbmcodW5kZWZpbmVkLCB7bWF4aW11bUZyYWN0aW9uRGlnaXRzOiAwfSl9XCIgKipgXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMzIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibWRgOFwiIFdpZGUgRmlsdGVyOiAgJHsoYWRkRmlsdGVyQXJlYSAvIDgpLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfVwiIHggOFwiYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zNCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im1kYDEwXCIgV2lkZSBGaWx0ZXI6ICAkeyhhZGRGaWx0ZXJBcmVhIC8gMTApLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfVwiIHggMTBcImBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMzUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJtZGAxMlwiIFdpZGUgRmlsdGVyOiAgJHsoYWRkRmlsdGVyQXJlYSAvIDEyKS50b0xvY2FsZVN0cmluZyh1bmRlZmluZWQsIHttYXhpbXVtRnJhY3Rpb25EaWdpdHM6IDB9KX1cIiB4IDEyXCJgXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTM2IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibWRgMTRcIiBXaWRlIEZpbHRlcjogICR7KGFkZEZpbHRlckFyZWEgLyAxNCkudG9Mb2NhbGVTdHJpbmcodW5kZWZpbmVkLCB7bWF4aW11bUZyYWN0aW9uRGlnaXRzOiAwfSl9XCIgeCAxNFwiYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zNyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im1kYDE2XCIgV2lkZSBGaWx0ZXI6ICAkeyhhZGRGaWx0ZXJBcmVhIC8gMTYpLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfVwiIHggMTZcImBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMzgiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJtZGAxOFwiIFdpZGUgRmlsdGVyOiAgJHsoYWRkRmlsdGVyQXJlYSAvIDE4KS50b0xvY2FsZVN0cmluZyh1bmRlZmluZWQsIHttYXhpbXVtRnJhY3Rpb25EaWdpdHM6IDB9KX1cIiB4IDE4XCJgXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTM5IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibWRgMjBcIiBXaWRlIEZpbHRlcjogICR7KGFkZEZpbHRlckFyZWEgLyAyMCkudG9Mb2NhbGVTdHJpbmcodW5kZWZpbmVkLCB7bWF4aW11bUZyYWN0aW9uRGlnaXRzOiAwfSl9XCIgeCAyMFwiYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC00MCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im1kYDIyXCIgV2lkZSBGaWx0ZXI6ICAkeyhhZGRGaWx0ZXJBcmVhIC8gMjIpLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfVwiIHggMjJcImBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNDEiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJtZGAyNFwiIFdpZGUgRmlsdGVyOiAgJHsoYWRkRmlsdGVyQXJlYSAvIDI0KS50b0xvY2FsZVN0cmluZyh1bmRlZmluZWQsIHttYXhpbXVtRnJhY3Rpb25EaWdpdHM6IDB9KX1cIiB4IDI0XCJgXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQyIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibWRgMjVcIiBXaWRlIEZpbHRlcjogICR7KGFkZEZpbHRlckFyZWEgLyAyNSkudG9Mb2NhbGVTdHJpbmcodW5kZWZpbmVkLCB7bWF4aW11bUZyYWN0aW9uRGlnaXRzOiAwfSl9XCIgeCAyNVwiYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdhY0luZm8nKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZnVybicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdmdXJuSW5CVFUnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZnVybkVmZicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdmdXJuTWF4RGVsdGEnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZmlsdGVyVGhpY2tuZXNzJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2ZpbHRXJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2ZpbHRIJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2ZpbHRBJykifV19
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vQUMgRm9ybSBJbnB1dHMgZm9yIFRvbm5hZ2UgYW5kIENGTSBwZXIgVG9uXG52aWV3b2YgYWNJbmZvID0gSW5wdXRzLmZvcm0oe1xuICB0b25zQWNTZWw6IElucHV0cy5yYWRpbyhbMzI1LCAzNTAsIDM3NSwgNDAwLCA0MjUsIDQ1MF0sIHtsYWJlbDogXCJTZWxlY3QgQ0ZNIHBlciBUb25cIiwgdmFsdWU6IDM1MFxuICB9KSxcbiAgY2ZtUGVyVG9uU2VsOiBJbnB1dHMucmFkaW8oWzEuNSwgMiwgMi41LCAzLCAzLjUsIDQsIDVdLCB7bGFiZWw6IFwiU2VsZWN0IFRvbnNcIiwgdmFsdWU6IDN9KVxufSk7XG4vL0FDIENGTSBGb3JtdWxhXG5hY0NmbSA9IChhY0luZm8uY2ZtUGVyVG9uU2VsICogYWNJbmZvLnRvbnNBY1NlbCk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvL1Nob3cgQ0ZNXG5tZGAke2FjQ2ZtfSBjZm0gdG90YWwgQUNgXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvL0Z1cm5hY2UgY2hlY2tib3ggYW5kIHRlc3QgdG8gSW5jbHVkZSBGdXJuYWNlIC0gQW5kIE5vdGlmaWNhdGlvbiBmdXJuYWNlIENGTSB3aWxsIGJlIHVzZWRcbnZpZXdvZiBmdXJuID0gSW5wdXRzLnRvZ2dsZSh7bGFiZWw6IFwiRnVybmFjZVwifSk7XG55ZXNmdXJuID0gXCJHYXMgSGVhdGluZyBDRk0gd2lsbCBiZSBDYWxjdWxhdGVkXCJcbm5vZnVybiA9IFwiR2FzIEhlYXRpbmcgQ0ZNIHdpbGwgYmUgc2V0IHRvIFplcm8gLSBPbmx5IEFDIENGTSB3aWxsIGJlIFVzZWRcIjtcbmZ1cm5UcnVlID0gXG57XG4gIGlmKGZ1cm4gPT0gdHJ1ZSkgeyBcbiAgICByZXR1cm4geWVzZnVyblxuICB9IGVsc2UgeyBcbiAgICByZXR1cm4gbm9mdXJuXG4gIH1cbn07XG5ub2Z1cm5DRk0gPSAwXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvL0Z1cm5hY2UgSW5wdXQgQlRVXG52aWV3b2YgZnVybkluQlRVID0gSW5wdXRzLm51bWJlcihbMjAwMDAsIDIwMDAwMF0se1xuICBsYWJlbDogXCJGdXJuYWNlIElucHV0IEJUVS9oXCIsXG4gIHZhbHVlOiA4MDAwMCxcbiAgc3RlcDogMTAwMCxcbiAgd2lkdGg6IDEwMFxufSk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvL0Z1cm5hY2UgRWZmaWNpZW5jeVxudmlld29mIGZ1cm5FZmYgPSBJbnB1dHMubnVtYmVyKFsuNjAsIDEuMDBdLHtcbiAgbGFiZWw6IFwiRnVybmFjZSBFZmZpY2llbmN5XCIsXG4gIHZhbHVlOiAuODAsXG4gIHN0ZXA6IC4wMSxcbiAgd2lkdGg6IDEwMFxufSk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTYiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvL0Z1cm5hY2UgRGVsdGFcbnZpZXdvZiBmdXJuTWF4RGVsdGEgPSBJbnB1dHMucmFkaW8oWzMwLCAzNSwgNDAsIDQ1LCA1MCwgNTUsIDYwLCA2NV0sIHtcbiAgbGFiZWw6IFwiRnVybmFjZSBNYXggVGVtcGVyYXR1cmUgUmlzZVwiLCBcbiAgdmFsdWU6IDUwXG59KTtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vUmV0dXJuIEZ1cm5hY2UgQ0ZNIGlzIGJlaW5nIGNvbnNpZGVyZWQgaW4gY2FsY3VsYXRpb25zIFxubWRgKk5vdGU6ICR7ZnVyblRydWV9KmA7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTgiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvL1JldHVybiBGdXJuYWNlIENGTSBhcyBjYWxjdWxhdGVkIGJhc2VkIG9uIElucHV0c1xuZnVybk91dEJUVSA9IGZ1cm5JbkJUVSAqIGZ1cm5FZmY7XG5oZWF0Q0ZNID0gZnVybk91dEJUVSAvICgxLjA4ICogZnVybk1heERlbHRhKTtcbm1kYEZ1cm5hY2UgTWluaW11bSBDRk06ICR7KGZ1cm5NaW5DRk0pLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfSBDRk1gO1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC05IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy9SZXR1cm4gRGVzaWduIENGTSBiZWluZyB1c2VkIGZvciBDYWxjdWxhdGlvbnNcbm1kYE1pbmltdW0gQ0ZNOiAkeyhtaW5TeXNDRk0pLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfSBDRk1gO1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xMCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBmaWx0ZXJUaGlja25lc3MgPSBJbnB1dHMuc2VsZWN0KFsxLCAyLCA0LCA1XSwge3ZhbHVlOiAyLCB3aWR0aDogNzV9KVxuXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTExIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy9Gb3JtdWxhcyBSZWxhdGVkIHRvIFRvdGFsIFN5c3RlbSBhbmQgQWlyZmxvdyBDYWxjdWxhdGlvbnNcbi8vTWluaW11bSBEdWN0IGFuZCBGaWx0ZXIgU2l6ZXMgZm9yIEFDXG5taW5mVEFjID0gYWNDZm0gLyAyO1xubWluckRBYyA9IChhY0NmbSAvIDQuODYpO1xubWluc0RBYyA9IGFjQ2ZtIC8gNi41O1xuLy9NaW5pbXVtIER1Y3QgYW5kIEZpbHRlciBTaXplcyBmb3IgSGVhdGluZ1xubWluZlRBaCA9IGZ1cm5NaW5DRk0gLyAyO1xubWluckRBaCA9IChmdXJuTWluQ0ZNIC8gNC44Nik7XG5taW5zREFoID0gZnVybk1pbkNGTSAvIDYuNTtcbi8vRmlsdGVyIFRvdGFsc1xuZlRjZm1NYXggPSBmVCAqIDI7IFxuZlQgPSBmM0EgKyBmMkEgKyBmMUE7XG4vL01pbmltdW0gRHVjdCBhbmQgRmlsdGVyIFNpemVzIEJhc2VkIG9uIERlc2lnbiBDRk1cbm1pbmZUQSA9IG1pblN5c0NGTSAvICgzMDAgLyAxNDQpO1xubWluZlRBMSA9IG1pblN5c0NGTSAvICgyMjUgLyAxNDQpO1xubWluckRBID0gKG1pblN5c0NGTSAvIDQuODYpO1xubWluc0RBID0gbWluU3lzQ0ZNIC8gNi41O1xuLy9NYXRoZW1hdGljYWwgY29uc3RhbnRzXG5waSA9IDMuMTQxXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTEyIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy9DYWxjdWxhdGUgRGVzaWduIENGTSBCYXNlZCBvbiBIaWdoZXIgb2YgRnVybmFjZSBvciBBQ1xuZnVybk1pbkNGTSA9IFxue1xuICBpZihmdXJuID09IHRydWUpIHsgXG4gICAgcmV0dXJuIGhlYXRDRk1cbiAgfSBlbHNlIHsgXG4gICAgcmV0dXJuIG5vZnVybkNGTVxuICB9XG59O1xubWluU3lzQ0ZNID0gXG57XG4gIGlmKGFjQ2ZtID4gZnVybk1pbkNGTSkgeyBcbiAgICByZXR1cm4gYWNDZm1cbiAgfSBlbHNlIHsgXG4gICAgcmV0dXJuIGZ1cm5NaW5DRk1cbiAgfVxufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vRmlsdGVyIFdpZHRoIElucHV0c1xuaHRtbGA8Yj5XaWR0aDwvYj5gXG52aWV3b2YgZjF3ID0gSW5wdXRzLm51bWJlcihbMCwgNjBdLHt2YWx1ZTogMTZ9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xNCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vRmlsdGVyIElucHV0c1xuZjFBID0gZjFoICogZjF3XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTE1IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy9GaWx0ZXIgSGVpZ2h0IElucHV0c1xuaHRtbGA8Yj5IZWlnaHQ8L2I+YFxudmlld29mIGYxaCA9IElucHV0cy5udW1iZXIoWzAsIDYwXSx7dmFsdWU6IDE2fSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMTYiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJodG1sYDxiPkFyZWE8L2I+YDtcbnZpZXdvZiBmMVRhID0gSW5wdXRzLm51bWJlcih7dmFsdWU6IGYxQSwgZGlzYWJsZWQ6IHRydWV9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xNyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vRmlsdGVyIFdpZHRoIElucHV0c1xuaHRtbGA8Yj5XaWR0aDwvYj5gXG52aWV3b2YgZjJ3ID0gSW5wdXRzLm51bWJlcihbMCwgNjBdLHt2YWx1ZTogMTZ9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0xOCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vRmlsdGVyIElucHV0c1xuZjJBID0gZjJoICogZjJ3XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTE5IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy9GaWx0ZXIgSGVpZ2h0IElucHV0c1xuaHRtbGA8Yj5IZWlnaHQ8L2I+YFxudmlld29mIGYyaCA9IElucHV0cy5udW1iZXIoWzAsIDYwXSx7dmFsdWU6IDE2fSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMjAiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJodG1sYDxiPkFyZWE8L2I+YDtcbnZpZXdvZiBmMlRhID0gSW5wdXRzLm51bWJlcih7dmFsdWU6IGYxQSwgZGlzYWJsZWQ6IHRydWV9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vRmlsdGVyIFdpZHRoIElucHV0c1xuaHRtbGA8Yj5XaWR0aDwvYj5gXG52aWV3b2YgZjN3ID0gSW5wdXRzLm51bWJlcihbMCwgNjBdLHt2YWx1ZTogMTZ9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vRmlsdGVyIElucHV0c1xuZjNBID0gZjNoICogZjN3XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIzIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy9GaWx0ZXIgSGVpZ2h0IElucHV0c1xuaHRtbGA8Yj5IZWlnaHQ8L2I+YFxudmlld29mIGYzaCA9IElucHV0cy5udW1iZXIoWzAsIDYwXSx7dmFsdWU6IDE2fSlcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMjQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJodG1sYDxiPkFyZWE8L2I+YDtcbnZpZXdvZiBmM1RhID0gSW5wdXRzLm51bWJlcih7dmFsdWU6IGYxQSwgZGlzYWJsZWQ6IHRydWV9KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yNSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vU2hvdyBUb3RhbCBGaWx0ZXIgQXJlYVxubWRgICAke2ZUfSBzcSBpbmA7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTI2IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiLy9TaG93IE1heGltdW0gQ0ZNIEJhc2VkIG9uIEZpbHRlciBBcmVhXG5tZGAgICR7ZlRjZm1NYXh9Y2ZtYDtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMjciLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvL1dyaXR0ZW4gUGVyZm9ybWFuY2UgR3JhZGUgQmFzZWQgb24gVmVsb2NpdHlcbmZpbHRQZXJmR3JhZGUgPSBcbntcbiAgaWYoZlYgPj0gNTAwKSB7IFxuICAgIHJldHVybiAoXCJXb3JzdCAtIEFkZGl0aW9uYWwgRmlsdGVycyBSZXF1aXJlZFwiKVxuICB9XG4gICAgZWxzZSBpZihmaWx0RXhjZXNzVmVsb2NpdHkgPj0gODUpIHsgXG4gICAgICByZXR1cm4gKFwiUG9vclwiKVxuICB9IGVsc2UgaWYoZmlsdEV4Y2Vzc1ZlbG9jaXR5ID49IDMwKSB7IFxuICAgICAgcmV0dXJuIChcIkF2ZXJhZ2VcIilcbiAgfSBlbHNlIGlmKGZpbHRFeGNlc3NWZWxvY2l0eSA+PSAzKSB7IFxuICAgICAgcmV0dXJuIChcIkdvb2RcIilcbiAgfSBlbHNlIHsgXG4gICAgcmV0dXJuIChcIkV4Y2VsbGVudFwiKVxuICB9XG59O1xubWRgIyMjIEZpbHRlciBQZXJmb3JtYW5jZSBCYXNlZCBvbiBWZWxvY2l0eTogICoqJHtmaWx0UGVyZkdyYWRlfSoqYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yOCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im1kYCMjIyMgQWlyIFZlbG9jaXR5IGF0IEZpbHRlcjogICoqJHsoZlYpLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfSBGUE0qKmBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMjkiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJmViA9IG1pblN5c0NGTSAvIChmVCAvIDE0NClcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMzAiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJtZGAqKkFpciBWZWxvY2l0eSBhdCBGaWx0ZXI6ICAkeyhmVikudG9Mb2NhbGVTdHJpbmcodW5kZWZpbmVkLCB7bWF4aW11bUZyYWN0aW9uRGlnaXRzOiAwfSl9IEZQTSoqYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImZpbHRFeGNlc3NWZWxvY2l0eSA9IFxue1xuICBpZihmaWx0ZXJUaGlja25lc3MgPT0gMSkgeyBcbiAgICByZXR1cm4gKGZWIC0gMjI1KVxuICB9IGVsc2UgeyBcbiAgICByZXR1cm4gKGZWIC0gMzAwKVxuICB9XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMyIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibWRgKipBaXIgVmVsb2NpdHkgT3ZlciBSZWNvbW1lbmRlZDogJHsoZmlsdEV4Y2Vzc1ZlbG9jaXR5KS50b0xvY2FsZVN0cmluZyh1bmRlZmluZWQsIHttYXhpbXVtRnJhY3Rpb25EaWdpdHM6IDB9KX0gRlBNKipgXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMzIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZlAxZCA9ICgoKGZWIC0gNzUpIC8gNzUpKSAqIC4wNztcbmZQMmQgPSAoKChmViAtIDc1KSAvIDc1KSkgKiAuMDQ1O1xuZlA0ZCA9ICgoKGZWIC0gNzUpIC8gNzUpKSAqIC4wNDtcbmZQNWQgPSAoKChmViAtIDc1KSAvIDc1KSkgKiAuMDNcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMzQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJwRGVsdGFFc3RpbWF0ZSA9IFxue1xuICBpZihmaWx0ZXJUaGlja25lc3MgPT0gMSkgeyBcbiAgICByZXR1cm4gKGZQMWQpXG4gIH0gZWxzZSBpZihmaWx0ZXJUaGlja25lc3MgPT0gMikgeyBcbiAgICAgIHJldHVybiAoZlAyZClcbiAgfSBlbHNlIGlmKGZpbHRlclRoaWNrbmVzcyA9PSAzKSB7IFxuICAgICAgcmV0dXJuIChmUDRkKVxuICB9IGVsc2UgeyBcbiAgICByZXR1cm4gKGZQNWQpXG4gIH1cbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMzUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJtZGAqKkVzdGltYXRlZCBGaWx0ZXIgUHJlc3N1cmUgRHJvcDogICAkeyhwRGVsdGFFc3RpbWF0ZSkudG9Mb2NhbGVTdHJpbmcodW5kZWZpbmVkLCB7bWF4aW11bUZyYWN0aW9uRGlnaXRzOiAzfSl9IGluLiB3LmMuKipgXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTM2IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiYWRkRmlsdGVyQXJlYSA9IFxue1xuICBpZihmaWx0ZXJUaGlja25lc3MgPT0gMSkgeyBcbiAgICByZXR1cm4gKG1pbmZUQTEgLSBmVClcbiAgfSBlbHNlIHsgXG4gICAgcmV0dXJuIChtaW5mVEEgLSBmVClcbiAgfVxufTtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMzciLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJmaWx0UGVyZkdyYWRlUGQgPSBcbntcbiAgaWYocERlbHRhRXN0aW1hdGUgPj0gMC4zKSB7IFxuICAgIHJldHVybiAoXCJXb3JzdCAtIExvdyBTeXN0ZW0gRWZmaWNpZW5jeVwiKVxuICB9XG4gICAgZWxzZSBpZihwRGVsdGFFc3RpbWF0ZSA+PSAwLjIyKSB7IFxuICAgICAgcmV0dXJuIChcIlBvb3JcIilcbiAgfSBlbHNlIGlmKHBEZWx0YUVzdGltYXRlID49IDAuMTUpIHsgXG4gICAgICByZXR1cm4gKFwiQXZlcmFnZVwiKVxuICB9IGVsc2UgaWYocERlbHRhRXN0aW1hdGUgPj0gMC4xKSB7IFxuICAgICAgcmV0dXJuIChcIkdvb2RcIilcbiAgfSBlbHNlIHsgXG4gICAgcmV0dXJuIChcIkV4Y2VsbGVudFwiKVxuICB9XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTM4IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibWRgIyMjIEZpbHRlciBQZXJmb3JtYW5jZSBCYXNlZCBvbiBQcmVzc3VyZSBEcm9wOiAke2ZpbHRQZXJmR3JhZGVQZH1gXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTM5IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibWRgIyMjIyBFc3RpbWF0ZWQgRmlsdGVyIFByZXNzdXJlIERyb3A6ICoqJHsocERlbHRhRXN0aW1hdGUpLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogM30pfSBpbi4gdy5jLioqYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC00MCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im1kYCoqQWRkaXRpb25hbCBGaWx0ZXIgQXJlYSBSZWNvbW1lbmRlZDogICR7KGFkZEZpbHRlckFyZWEpLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfSBzcS4gaW4uKipgXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQxIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoic3FGaWx0U2l6ZSA9IE1hdGguc3FydChhZGRGaWx0ZXJBcmVhKVxubWRgKipBZGRpdGlvbmFsIFNxdWFyZSBGaWx0ZXIgU2l6ZTogICR7KHNxRmlsdFNpemUpLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfVwiIHggJHsoc3FGaWx0U2l6ZSkudG9Mb2NhbGVTdHJpbmcodW5kZWZpbmVkLCB7bWF4aW11bUZyYWN0aW9uRGlnaXRzOiAwfSl9XCIgKipgXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQyIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibWRgOFwiIFdpZGUgRmlsdGVyOiAgJHsoYWRkRmlsdGVyQXJlYSAvIDgpLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfVwiIHggOFwiYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC00MyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im1kYDEwXCIgV2lkZSBGaWx0ZXI6ICAkeyhhZGRGaWx0ZXJBcmVhIC8gMTApLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfVwiIHggMTBcImBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNDQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJtZGAxMlwiIFdpZGUgRmlsdGVyOiAgJHsoYWRkRmlsdGVyQXJlYSAvIDEyKS50b0xvY2FsZVN0cmluZyh1bmRlZmluZWQsIHttYXhpbXVtRnJhY3Rpb25EaWdpdHM6IDB9KX1cIiB4IDEyXCJgXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQ1IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibWRgMTRcIiBXaWRlIEZpbHRlcjogICR7KGFkZEZpbHRlckFyZWEgLyAxNCkudG9Mb2NhbGVTdHJpbmcodW5kZWZpbmVkLCB7bWF4aW11bUZyYWN0aW9uRGlnaXRzOiAwfSl9XCIgeCAxNFwiYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC00NiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im1kYDE2XCIgV2lkZSBGaWx0ZXI6ICAkeyhhZGRGaWx0ZXJBcmVhIC8gMTYpLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfVwiIHggMTZcImBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNDciLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJtZGAxOFwiIFdpZGUgRmlsdGVyOiAgJHsoYWRkRmlsdGVyQXJlYSAvIDE4KS50b0xvY2FsZVN0cmluZyh1bmRlZmluZWQsIHttYXhpbXVtRnJhY3Rpb25EaWdpdHM6IDB9KX1cIiB4IDE4XCJgXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQ4IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibWRgMjBcIiBXaWRlIEZpbHRlcjogICR7KGFkZEZpbHRlckFyZWEgLyAyMCkudG9Mb2NhbGVTdHJpbmcodW5kZWZpbmVkLCB7bWF4aW11bUZyYWN0aW9uRGlnaXRzOiAwfSl9XCIgeCAyMFwiYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC00OSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Im1kYDIyXCIgV2lkZSBGaWx0ZXI6ICAkeyhhZGRGaWx0ZXJBcmVhIC8gMjIpLnRvTG9jYWxlU3RyaW5nKHVuZGVmaW5lZCwge21heGltdW1GcmFjdGlvbkRpZ2l0czogMH0pfVwiIHggMjJcImBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNTAiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJtZGAyNFwiIFdpZGUgRmlsdGVyOiAgJHsoYWRkRmlsdGVyQXJlYSAvIDI0KS50b0xvY2FsZVN0cmluZyh1bmRlZmluZWQsIHttYXhpbXVtRnJhY3Rpb25EaWdpdHM6IDB9KX1cIiB4IDI0XCJgXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTUxIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoibWRgMjVcIiBXaWRlIEZpbHRlcjogICR7KGFkZEZpbHRlckFyZWEgLyAyNSkudG9Mb2NhbGVTdHJpbmcodW5kZWZpbmVkLCB7bWF4aW11bUZyYWN0aW9uRGlnaXRzOiAwfSl9XCIgeCAyNVwiYFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdhY0luZm8nKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZnVybicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdmdXJuSW5CVFUnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZnVybkVmZicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdmdXJuTWF4RGVsdGEnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZmlsdGVyVGhpY2tuZXNzJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2YxdycpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdmMWgnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZjFUYScpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdmMncnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZjJoJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2YyVGEnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnZjN3JykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2YzaCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdmM1RhJykifV19
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }

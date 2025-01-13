@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – Think Mechanically</title>
+<title>filttabletestinput – Think Mechanically</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -33,6 +67,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -67,12 +102,14 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -90,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -104,213 +141,111 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./about.html">About</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./listTools.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tools</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ductSizingall.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">System Duct Sizing</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./filterSizing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FilterSizing</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./about.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">About</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">About Me</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./resumenoco.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Resume</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./filterSizingdeprecated.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">WIP</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./filterSizingdeprecated.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FilterSizingdep</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-  <ul>
-  <li><a href="#about-the-site" id="toc-about-the-site" class="nav-link active" data-scroll-target="#about-the-site">About the Site</a></li>
-  <li><a href="#about-me" id="toc-about-me" class="nav-link" data-scroll-target="#about-me">About Me:</a>
-  <ul class="collapse">
-  <li><a href="#job-coordination-estimation" id="toc-job-coordination-estimation" class="nav-link" data-scroll-target="#job-coordination-estimation">Job Coordination &amp; Estimation</a></li>
-  <li><a href="#plumbing" id="toc-plumbing" class="nav-link" data-scroll-target="#plumbing">Plumbing</a></li>
-  <li><a href="#fuel-gas-systems" id="toc-fuel-gas-systems" class="nav-link" data-scroll-target="#fuel-gas-systems">Fuel Gas Systems</a></li>
-  <li><a href="#mechanical-and-hvac" id="toc-mechanical-and-hvac" class="nav-link" data-scroll-target="#mechanical-and-hvac">Mechanical and HVAC</a></li>
-  <li><a href="#ductwork" id="toc-ductwork" class="nav-link" data-scroll-target="#ductwork">Ductwork</a></li>
-  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
-  <li><a href="#ductwork-1" id="toc-ductwork-1" class="nav-link" data-scroll-target="#ductwork-1">Ductwork</a></li>
-  <li><a href="#fire-sprinkler-systems" id="toc-fire-sprinkler-systems" class="nav-link" data-scroll-target="#fire-sprinkler-systems">Fire Sprinkler Systems</a></li>
-  <li><a href="#electrical" id="toc-electrical" class="nav-link" data-scroll-target="#electrical">Electrical</a></li>
-  </ul></li>
-  <li><a href="#non-trade-related-skills" id="toc-non-trade-related-skills" class="nav-link" data-scroll-target="#non-trade-related-skills">Non Trade Related Skills</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="profile.png" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">About</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header><main class="content" id="quarto-document-content">
-
-<section id="about-the-site" class="level2">
-<h2 data-anchor-id="about-the-site">About the Site</h2>
-<p>The purpose of this site is to provide access to information I have gathered over the years concerning the mechanical trades, Plumbing, HVAC, electrical, and other various bits of information. I do my best to focus on novel ideas and hard to find information. I also try to maintain a list of particularly good resources for information that have helped me over the years.</p>
-<p>The idea of “thinking mechanically” is to think about how things work and how to approach systems with a solid base of understanding. Exemplified in ideas such as my lesson on “There’s no Suct Thing as Cold.” It’s, obviously, not a new concept, but one that I think often gets missed in one way or another in many teaching and course programs. “Thinking mechanically” is a skill that took me a very long time to build, where for some people it comes naturally. But it involves everything from understanding the physics of the environment your manipulating to how fast you drill a hole into metal or wood and why, to how fluid movement works in pipes and ducts, etc.</p>
-<p>My goal is to provide the resources to build this foundation for others. So that, if you come across new problems it doesn’t feel like you’re in the dark as to where to start. If you can look at the system, understand how it works, you can easily picture what is happening and how to approach solving whatever you’re working on.</p>
-<p>Many textbooks try to cover the “fundamentals” of many aspects of the trade, but do so in a way where instead of explaining the basics of, for example, heat loss and how that affects occupant comfort and load calculations and how to identify issues, instead tend to focus on conduction, convection, radiation, and just the fact these types of heat transfer exist.</p>
-<p>I have taught in programs where the building of knowledge in different areas of the trade happen almost schizophrenically instead of a slow building of one idea after another. This is why, in my teaching career, I always preferred teaching in an environment where I could create and direct my own coursework instead of utilizing boiler plate solutions. Any boilerplate is flawed by its nature. While some subjects can be moved around as necessary, many things when learning the trades have to be built upon earlier ideas, very carefully, if a comprehensive understanding is going to have a good foundation.</p>
-</section>
-<section id="about-me" class="level2">
-<h2 data-anchor-id="about-me">About Me:</h2>
-<p>My name is Chris Freeman. I have been working in the trades since I was 16 years old, and started full time not long after I turned 17, after getting my GED in the 11th Grade. Below is a short list of the things I have done as part of my career in the mechanical trades. I also have a complete version of my resume available, <a href="resumenoco.html">here</a>. That provides a little more detail on the key points, below, if int</p>
-<p>I post this information on the site simply so my background can be understood. Because, as you will see, my experience spans a wide area of HVAC and Plumbing, and I have been involved in so may different areas over my career, I have a very good foundation on lots of aspects, but not a lot of specific knowledge in some things. A good example would be, one of the guys I learned HVAC from is capable of telling you how to diagnose specific systems from specific model years for residential systems. That is not my area of expertise. My area of expertise is providing insights and resources on how to procure the best information in a short period of time to solve a wide range of problems. There are very things I know immediately (that aren’t core ideas) but I can find specific information on things very quickly. Or tell you the best way of doing estimating, or VRF, or what to look out for, etc. Most of the time, if I am troubleshooting it, I get the necessary manuals in my hand in just a couple minutes and start from there. And that is the kind of resourcefulness I want to spread through the industry.</p>
-<p>With that rambling complete (I am not known for brevity, I am working on that) here is my experience in the trades.</p>
-<section id="job-coordination-estimation" class="level3">
-<h3 data-anchor-id="job-coordination-estimation">Job Coordination &amp; Estimation</h3>
-<p>PDF creation and overlay, submittal documents, O&amp;M manual creation, design coordination with other trades, engineers, architects, and building owners. Development of coordination drawings. Assistance and consulting for commercial facilities owners on self-performing tenant and core building improvement projects. Created my own estimating tools using Bluebeam. Have created exactly to scale tools in Bluebeam on multiple projects to measure and cut piping for prefabrication before installation with very good accuracy.</p>
-</section>
-<section id="plumbing" class="level3">
-<h3 data-anchor-id="plumbing">Plumbing</h3>
-<p>Sanitary waste and vent, storm piping, gas, chemical drainage, multi horsepower storm and sewage pump controls and installation, gas piping systems, domestic and non potable water systems. Drain cleaning with K50, K60, sewer jetter machine, hot water jetter machine, sewer cameras, and locators. Creation and submittal of original residential and commercial design documents for plan review. Coordination with design engineers on changes for county plan review comment resolutions. Water filtration systems, well and well piping systems.</p>
-</section>
-<section id="fuel-gas-systems" class="level3">
-<h3 data-anchor-id="fuel-gas-systems">Fuel Gas Systems</h3>
-<p>Natural Gas and LP, Design, value engineering, custom regulator selection, main regulator repairs, verification of existing system meter and regulator capacities, overcoming design challenges in areas with very low gas pressures (Bethesda, DC), troubleshooting intermittent gas appliance failures, LP systems selection and design, creation and submittal of original residential and commercial design documents for plan review</p>
-</section>
-<section id="mechanical-and-hvac" class="level3">
-<h3 data-anchor-id="mechanical-and-hvac">Mechanical and HVAC</h3>
-<p>VAV systems, rooftop units, design of controls systems for boilers, interlock kitchen equipment, design basic electrical systems, creation and submittal of original residential and commercial design documents for plan review, design grease waste systems, installation, design, and commissioning of VRV/VRF systems, unitary split systems, design, installation and commissioning of mini-split systems, grease duct installation, layout and coordination of mechanical systems, full mechanical projects, cooling tower piping design and installation, VFD installation for HVAC systems, zoning systems, clothes dryer venting, commercial refrigeration controls and piping, fire dampers, steam and hydronic piping, smoke damper commissioning, fire damper commissioning, quality control, walk in cooler fabrication</p>
-</section>
-<section id="ductwork" class="level3">
-<h3 data-anchor-id="ductwork">Ductwork</h3>
-<p>Design, verification of SMACNA compliance, redesign, Manual D calculations. Airflow measurements using hot wire anemometers, vane anemometers, pitot tubes and manometers, static pressure probes and manufacturers data. Sketching commercial and residential installations for procurement, fire dampers, fire and smoke dampers, ceiling radiation dampers, balancing, factory fabricated stainless, exhaust systems design and retrofits, fan selection for commercial kitchen exhaust, custom fitting and fire damper fabrication, single and double wall flue design, grease duct layout and fitting, light testing, stainless, aluminum, galvanized, and black iron.</p>
-</section>
-<section id="software" class="level3">
-<h3 data-anchor-id="software">Software</h3>
-<p>Microsoft Office (Excel, MS Word, Outlook, Etc), Planswift, Bluebeam, Wrightsoft Right-Suite Universal, Solidyne, KMC, Siemens, Computrols, iVu, Tracer</p>
-</section>
-<section id="ductwork-1" class="level3">
-<h3 data-anchor-id="ductwork-1">Ductwork</h3>
-<p>Design, verification of SMACNA compliance, redesign, Manual D calculations. Airflow measurements using hot wire anemometers, vane anemometers, pitot tubes and manometers, static pressure probes and manufacturers data. Sketching commercial and residential installations for procurement, fire dampers, fire and smoke dampers, ceiling radiation dampers, balancing, factory fabricated stainless, exhaust systems design and retrofits, fan selection for commercial kitchen exhaust, custom fitting and fire damper fabrication, single and double wall flue design, grease duct layout and fitting, light testing, stainless, aluminum, galvanized, and black iron.</p>
-</section>
-<section id="fire-sprinkler-systems" class="level3">
-<h3 data-anchor-id="fire-sprinkler-systems">Fire Sprinkler Systems</h3>
-<p>Repair, partial replacement, backflow preventer testing, underground sprinkler main installation in most local jurisdictions, repair compressed air dry systems, fire panel troubleshooting, electrical interlocking of kitchen hoods for code compliance</p>
-</section>
-<section id="electrical" class="level3">
-<h3 data-anchor-id="electrical">Electrical</h3>
-<p>Main panel replacements, troubleshooting, verification of code compliance of different wire types, small facilities design (stamped by others), kitchen hood interlocks in restaurant facilities, repairs in breaker panels, disconnects, equipment, transformers, appliances, appurtenances, buck/boost calculations.</p>
-</section>
-</section>
-<section id="non-trade-related-skills" class="level2">
-<h2 data-anchor-id="non-trade-related-skills">Non Trade Related Skills</h2>
-<p>Audio Production using Reaper, Cubase, Native Instruments, Amplitube, and many other audio software solutions. Former (locally touring) bass player for Adwela and the Uprising (wrote, in conjunction with my cousin most of the bass and later featured by another player on the road less traveled). Avergae bass player, mediocre guitar and keys player, extensive practice is sound design and audio mixing. Helped in a local recording studio for a couple years recording other local bands.</p>
-<p>Bass and guitar modifications. Rebuilt many guitars doing basic setup work and extensive electronic work. My most extensive project being a complete overhaul of of a Bass VI. Have created many very complicated switching systems which greatly assisted in my understanding of manipulating controls in HVAC and other trades.</p>
-<p>Some electronics hobby experience in modifying and building guitar pedals and many failed attempts at building other devices. I have had less success in this area but have learned a lot concerning the inner workings of control/circuit boards, transistors, diodes, thermistors, resistors, capacitors, integrated circuits, etc.</p>
-<p>Limited but growing experience with HTML, vanilla javascript, CSS, LaTeX, Linux, Quarto, VS Code, markdown, OBS Studio, Davinci Resolve, etc. Built my first websites as a teenager but did not pick up the hobby again until recently. Early coding experience helped in picking the hobby back up.</p>
-<p>Have studied woodworking, machining, welding, and other fundamentals….</p>
-<p>That’s most of the important stuff….</p>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-</section>
-</main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://twitter.com" class="about-link" rel="" target="">
-    <i class="bi bi-discord"></i>
-     <span class="about-link-text">discord</span>
-  </a>
-  <a href="https://github.com" class="about-link" rel="" target="">
-    <i class="bi bi-youtube"></i>
-     <span class="about-link-text">Youtube</span>
-  </a>
+
+
+<div class="quarto-ojs-syntax-error">
+<div class="sourceCode" id="cb1" data-startfrom="1" data-syntax-error-position="1803" data-source-offset="9"><pre class="sourceCode numberSource numberLines java code-with-copy"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1"></a>```<span class="op">{</span>ojs<span class="op">}</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co">//| panel: input</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a>html`<span class="op">&lt;</span>style type<span class="op">=</span><span class="st">"text/css"</span><span class="op">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="op">.</span><span class="fu">tg</span>  <span class="op">{</span>border<span class="op">-</span>collapse<span class="op">:</span>collapse<span class="op">;</span>border<span class="op">-</span>spacing<span class="op">:</span><span class="dv">0</span><span class="op">;}</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="op">.</span><span class="fu">tg</span> td<span class="op">{</span>border<span class="op">-</span>bottom<span class="op">-</span>width<span class="op">:</span><span class="er">1</span>px<span class="op">;</span>border<span class="op">-</span>color<span class="op">:</span>black<span class="op">;</span>border<span class="op">-</span>style<span class="op">:</span>solid<span class="op">;</span>border<span class="op">-</span>top<span class="op">-</span>width<span class="op">:</span><span class="er">1</span>px<span class="op">;</span>border<span class="op">-</span>width<span class="op">:</span><span class="er">0</span>px<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>  font<span class="op">-</span>family<span class="op">:</span>Arial<span class="op">,</span> sans<span class="op">-</span>serif<span class="op">;</span>font<span class="op">-</span>size<span class="op">:</span><span class="er">14</span>px<span class="op">;</span>overflow<span class="op">:</span>hidden<span class="op">;</span>padding<span class="op">:</span><span class="er">10</span>px <span class="er">5</span>px<span class="op">;</span>word<span class="op">-</span><span class="cf">break</span><span class="op">:</span>normal<span class="op">;}</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="op">.</span><span class="fu">tg</span> th<span class="op">{</span>border<span class="op">-</span>bottom<span class="op">-</span>width<span class="op">:</span><span class="er">1</span>px<span class="op">;</span>border<span class="op">-</span>color<span class="op">:</span>black<span class="op">;</span>border<span class="op">-</span>style<span class="op">:</span>solid<span class="op">;</span>border<span class="op">-</span>top<span class="op">-</span>width<span class="op">:</span><span class="er">1</span>px<span class="op">;</span>border<span class="op">-</span>width<span class="op">:</span><span class="er">0</span>px<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>  font<span class="op">-</span>family<span class="op">:</span>Arial<span class="op">,</span> sans<span class="op">-</span>serif<span class="op">;</span>font<span class="op">-</span>size<span class="op">:</span><span class="er">14</span>px<span class="op">;</span>font<span class="op">-</span>weight<span class="op">:</span>normal<span class="op">;</span>overflow<span class="op">:</span>hidden<span class="op">;</span>padding<span class="op">:</span><span class="er">10</span>px <span class="er">5</span>px<span class="op">;</span>word<span class="op">-</span><span class="cf">break</span><span class="op">:</span>normal<span class="op">;}</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="op">.</span><span class="fu">tg</span> <span class="op">.</span><span class="fu">tg</span><span class="op">-</span>fnfs<span class="op">{</span>font<span class="op">-</span>family<span class="op">:</span>Georgia<span class="op">,</span> serif <span class="op">!</span>important<span class="op">;</span>font<span class="op">-</span>size<span class="op">:</span><span class="er">13</span>px<span class="op">;</span>text<span class="op">-</span>align<span class="op">:</span>center<span class="op">;</span>vertical<span class="op">-</span>align<span class="op">:</span>middle<span class="op">}</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="op">.</span><span class="fu">tg</span> <span class="op">.</span><span class="fu">tg</span><span class="op">-</span>js4m<span class="op">{</span>background<span class="op">-</span>color<span class="op">:</span>#cbcefb<span class="op">;</span>font<span class="op">-</span>family<span class="op">:</span>Georgia<span class="op">,</span> serif <span class="op">!</span>important<span class="op">;</span>font<span class="op">-</span>size<span class="op">:</span><span class="er">14</span>px<span class="op">;</span>font<span class="op">-</span>weight<span class="op">:</span>bold<span class="op">;</span>text<span class="op">-</span>align<span class="op">:</span>center<span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>  vertical<span class="op">-</span>align<span class="op">:</span>bottom<span class="op">}</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="op">.</span><span class="fu">tg</span> <span class="op">.</span><span class="fu">tg</span><span class="op">-</span>z6f0<span class="op">{</span>background<span class="op">-</span>color<span class="op">:</span>#cbcefb<span class="op">;</span>font<span class="op">-</span>family<span class="op">:</span>Georgia<span class="op">,</span> serif <span class="op">!</span>important<span class="op">;</span>font<span class="op">-</span>size<span class="op">:</span><span class="er">14</span>px<span class="op">;</span>font<span class="op">-</span>weight<span class="op">:</span>bold<span class="op">;</span>text<span class="op">-</span>align<span class="op">:</span>center<span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>  vertical<span class="op">-</span>align<span class="op">:</span>middle<span class="op">}</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="op">.</span><span class="fu">tg</span> <span class="op">.</span><span class="fu">tg</span><span class="op">-</span>tx0g<span class="op">{</span>background<span class="op">-</span>color<span class="op">:</span>#ffffff<span class="op">;</span>font<span class="op">-</span>family<span class="op">:</span>Georgia<span class="op">,</span> serif <span class="op">!</span>important<span class="op">;</span>font<span class="op">-</span>size<span class="op">:</span><span class="er">13</span>px<span class="op">;</span>text<span class="op">-</span>align<span class="op">:</span>right<span class="op">;</span>vertical<span class="op">-</span>align<span class="op">:</span>middle<span class="op">}</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="op">.</span><span class="fu">tg</span> <span class="op">.</span><span class="fu">tg</span><span class="op">-</span><span class="er">70</span>wb<span class="op">{</span>background<span class="op">-</span>color<span class="op">:</span>#cbcefb<span class="op">;</span>font<span class="op">-</span>family<span class="op">:</span>Georgia<span class="op">,</span> serif <span class="op">!</span>important<span class="op">;</span>font<span class="op">-</span>size<span class="op">:</span><span class="er">14</span>px<span class="op">;</span>font<span class="op">-</span>weight<span class="op">:</span>bold<span class="op">;</span>text<span class="op">-</span>align<span class="op">:</span>right<span class="op">;</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>  vertical<span class="op">-</span>align<span class="op">:</span>middle<span class="op">}</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="at">@media</span> screen <span class="fu">and</span> <span class="op">(</span>max<span class="op">-</span>width<span class="op">:</span> <span class="er">767</span>px<span class="op">)</span> <span class="op">{.</span><span class="fu">tg</span> <span class="op">{</span>width<span class="op">:</span> auto <span class="op">!</span>important<span class="op">;}.</span><span class="fu">tg</span> col <span class="op">{</span>width<span class="op">:</span> auto <span class="op">!</span>important<span class="op">;}.</span><span class="fu">tg</span><span class="op">-</span>wrap <span class="op">{</span>overflow<span class="op">-</span>x<span class="op">:</span> auto<span class="op">;-</span>webkit<span class="op">-</span>overflow<span class="op">-</span>scrolling<span class="op">:</span> touch<span class="op">;}}&lt;/</span>style<span class="op">&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="op">&lt;</span>div <span class="kw">class</span><span class="op">=</span><span class="st">"tg-wrap"</span><span class="op">&gt;&lt;</span>table <span class="kw">class</span><span class="op">=</span><span class="st">"tg"</span> style<span class="op">=</span><span class="st">"undefined;table-layout: fixed; width: 483px"</span><span class="op">&gt;&lt;</span>colgroup<span class="op">&gt;</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="op">&lt;</span>col style<span class="op">=</span><span class="st">"width: 161px"</span><span class="op">&gt;</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="op">&lt;</span>col style<span class="op">=</span><span class="st">"width: 161px"</span><span class="op">&gt;</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="op">&lt;</span>col style<span class="op">=</span><span class="st">"width: 161px"</span><span class="op">&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a><span class="op">&lt;/</span>colgroup<span class="op">&gt;</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a><span class="op">&lt;</span>thead<span class="op">&gt;</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a>  <span class="op">&lt;</span>tr<span class="op">&gt;</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a>    <span class="op">&lt;</span>th <span class="kw">class</span><span class="op">=</span><span class="st">"tg-js4m"</span><span class="op">&gt;</span><span class="bu">Filter</span> Areas<span class="op">&lt;/</span>th<span class="op">&gt;</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a>    <span class="op">&lt;</span>th <span class="kw">class</span><span class="op">=</span><span class="st">"tg-z6f0"</span><span class="op">&gt;</span>Sq<span class="op">.</span> <span class="fu">In</span><span class="op">.&lt;/</span>th<span class="op">&gt;</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a>    <span class="op">&lt;</span>th <span class="kw">class</span><span class="op">=</span><span class="st">"tg-z6f0"</span><span class="op">&gt;</span>Sq<span class="op">.</span> <span class="fu">Ft</span><span class="op">&lt;/</span>th<span class="op">&gt;</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a>  <span class="op">&lt;/</span>tr<span class="op">&gt;&lt;/</span>thead<span class="op">&gt;</span></span>
+<span id="cb1-31"><a href="#cb1-31"></a><span class="op">&lt;</span>tbody<span class="op">&gt;</span></span>
+<span id="cb1-32"><a href="#cb1-32"></a>  <span class="op">&lt;</span>tr<span class="op">&gt;</span></span>
+<span id="cb1-33"><a href="#cb1-33"></a>    <span class="op">&lt;</span>td <span class="kw">class</span><span class="op">=</span><span class="st">"tg-tx0g"</span><span class="op">&gt;</span><span class="bu">Filter</span> <span class="dv">1</span> <span class="op">:&lt;/</span>td<span class="op">&gt;</span></span>
+<span id="cb1-34"><a href="#cb1-34"></a>    <span class="op">&lt;</span>td <span class="kw">class</span><span class="op">=</span><span class="st">"tg-fnfs"</span><span class="op">&gt;</span>$<span class="op">{</span>viewof f1A <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">number</span><span class="op">([</span><span class="dv">0</span><span class="op">,</span> <span class="dv">60</span><span class="op">],{</span>label<span class="op">:</span> <span class="st">"Width : "</span><span class="op">,</span> value<span class="op">:</span> <span class="dv">0</span><span class="op">,</span> width<span class="op">:</span> <span class="dv">60</span><span class="op">})}</span> sq<span class="op">.</span> <span class="fu">in</span><span class="op">.&lt;/</span>td<span class="op">&gt;</span></span>
+<span id="cb1-35"><a href="#cb1-35"></a>    <span class="op">&lt;</span>td <span class="kw">class</span><span class="op">=</span><span class="st">"tg-fnfs"</span><span class="op">&gt;</span>$<span class="op">{(</span>f1A <span class="op">/</span> <span class="dv">144</span><span class="op">).</span><span class="fu">toLocaleString</span><span class="op">(</span>undefined<span class="op">,</span> <span class="op">{</span>maximumFractionDigits<span class="op">:</span> <span class="dv">2</span><span class="op">})}</span> sq<span class="op">.</span> <span class="fu">ft</span><span class="op">.&lt;/</span>td<span class="op">&gt;</span></span>
+<span id="cb1-36"><a href="#cb1-36"></a>  <span class="op">&lt;/</span>tr<span class="op">&gt;</span></span>
+<span id="cb1-37"><a href="#cb1-37"></a>  <span class="op">&lt;</span>tr<span class="op">&gt;</span></span>
+<span id="cb1-38"><a href="#cb1-38"></a>    <span class="op">&lt;</span>td <span class="kw">class</span><span class="op">=</span><span class="st">"tg-tx0g"</span><span class="op">&gt;</span><span class="bu">Filter</span> <span class="dv">2</span> <span class="op">:&lt;/</span>td<span class="op">&gt;</span></span>
+<span id="cb1-39"><a href="#cb1-39"></a>    <span class="op">&lt;</span>td <span class="kw">class</span><span class="op">=</span><span class="st">"tg-fnfs"</span><span class="op">&gt;</span>$<span class="op">{</span>viewof f2A <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">number</span><span class="op">([</span><span class="dv">0</span><span class="op">,</span> <span class="dv">60</span><span class="op">],{</span>label<span class="op">:</span> <span class="st">"Width : "</span><span class="op">,</span> value<span class="op">:</span> <span class="dv">0</span><span class="op">,</span> width<span class="op">:</span> <span class="dv">60</span><span class="op">})}</span> sq<span class="op">.</span> <span class="fu">in</span><span class="op">.&lt;/</span>td<span class="op">&gt;</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a>    <span class="op">&lt;</span>td <span class="kw">class</span><span class="op">=</span><span class="st">"tg-fnfs"</span><span class="op">&gt;</span>$<span class="op">{(</span>f2A <span class="op">/</span> <span class="dv">144</span><span class="op">).</span><span class="fu">toLocaleString</span><span class="op">(</span>undefined<span class="op">,</span> <span class="op">{</span>maximumFractionDigits<span class="op">:</span> <span class="dv">2</span><span class="op">})}</span> sq<span class="op">.</span> <span class="fu">ft</span><span class="op">.&lt;/</span>td<span class="op">&gt;</span></span>
+<span id="cb1-41"><a href="#cb1-41"></a>  <span class="op">&lt;/</span>tr<span class="op">&gt;</span></span>
+<span id="cb1-42"><a href="#cb1-42"></a>  <span class="op">&lt;</span>tr<span class="op">&gt;</span></span>
+<span id="cb1-43"><a href="#cb1-43"></a>    <span class="op">&lt;</span>td <span class="kw">class</span><span class="op">=</span><span class="st">"tg-tx0g"</span><span class="op">&gt;</span><span class="bu">Filter</span> <span class="dv">3</span> <span class="op">:&lt;/</span>td<span class="op">&gt;</span></span>
+<span id="cb1-44"><a href="#cb1-44"></a>    <span class="op">&lt;</span>td <span class="kw">class</span><span class="op">=</span><span class="st">"tg-fnfs"</span><span class="op">&gt;</span>$<span class="op">{</span>viewof f3A <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">number</span><span class="op">([</span><span class="dv">0</span><span class="op">,</span> <span class="dv">60</span><span class="op">],{</span>label<span class="op">:</span> <span class="st">"Width : "</span><span class="op">,</span> value<span class="op">:</span> <span class="dv">0</span><span class="op">,</span> width<span class="op">:</span> <span class="dv">60</span><span class="op">})}</span> sq<span class="op">.</span> <span class="fu">in</span><span class="op">.&lt;/</span>td<span class="op">&gt;</span></span>
+<span id="cb1-45"><a href="#cb1-45"></a>    <span class="op">&lt;</span>td <span class="kw">class</span><span class="op">=</span><span class="st">"tg-fnfs"</span><span class="op">&gt;</span>$<span class="op">{(</span>f3A <span class="op">/</span> <span class="dv">144</span><span class="op">).</span><span class="fu">toLocaleString</span><span class="op">(</span>undefined<span class="op">,</span> <span class="op">{</span>maximumFractionDigits<span class="op">:</span> <span class="dv">2</span><span class="op">})}</span> sq<span class="op">.</span> <span class="fu">ft</span><span class="op">.&lt;/</span>td<span class="op">&gt;</span></span>
+<span id="cb1-46"><a href="#cb1-46"></a>  <span class="op">&lt;/</span>tr<span class="op">&gt;</span></span>
+<span id="cb1-47"><a href="#cb1-47"></a>    <span class="op">&lt;</span>tr<span class="op">&gt;</span></span>
+<span id="cb1-48"><a href="#cb1-48"></a>    <span class="op">&lt;</span>td <span class="kw">class</span><span class="op">=</span><span class="st">"tg-tx0g"</span><span class="op">&gt;</span><span class="bu">Filter</span> <span class="dv">3</span> <span class="op">:&lt;/</span>td<span class="op">&gt;</span></span>
+<span id="cb1-49"><a href="#cb1-49"></a>    <span class="op">&lt;</span>td <span class="kw">class</span><span class="op">=</span><span class="st">"tg-fnfs"</span><span class="op">&gt;</span>$<span class="op">{</span>viewof f4A <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">number</span><span class="op">([</span><span class="dv">0</span><span class="op">,</span> <span class="dv">60</span><span class="op">],{</span>label<span class="op">:</span> <span class="st">"Width : "</span><span class="op">,</span> value<span class="op">:</span> <span class="dv">0</span><span class="op">,</span> width<span class="op">:</span> <span class="dv">60</span><span class="op">})}</span> sq<span class="op">.</span> <span class="fu">in</span><span class="op">.&lt;/</span>td<span class="op">&gt;</span></span>
+<span id="cb1-50"><a href="#cb1-50"></a>    <span class="op">&lt;</span>td <span class="kw">class</span><span class="op">=</span><span class="st">"tg-fnfs"</span><span class="op">&gt;</span>$<span class="op">{(</span>f4A <span class="op">/</span> <span class="dv">144</span><span class="op">).</span><span class="fu">toLocaleString</span><span class="op">(</span>undefined<span class="op">,</span> <span class="op">{</span>maximumFractionDigits<span class="op">:</span> <span class="dv">2</span><span class="op">})}</span> sq<span class="op">.</span> <span class="fu">ft</span><span class="op">.&lt;/</span>td<span class="op">&gt;</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a>  <span class="op">&lt;/</span>tr<span class="op">&gt;</span></span>
+<span id="cb1-52"><a href="#cb1-52"></a>  <span class="op">&lt;</span>tr<span class="op">&gt;</span></span>
+<span id="cb1-53"><a href="#cb1-53"></a>    <span class="op">&lt;</span>td <span class="kw">class</span><span class="op">=</span><span class="st">"tg-70wb"</span><span class="op">&gt;</span>Total <span class="bu">Area</span> <span class="op">:&lt;/</span>td<span class="op">&gt;</span></span>
+<span id="cb1-54"><a href="#cb1-54"></a>    <span class="op">&lt;</span>td <span class="kw">class</span><span class="op">=</span><span class="st">"tg-z6f0"</span><span class="op">&gt;</span>$<span class="op">{</span>fT <span class="op">=</span> f1A <span class="op">+</span> f2A <span class="op">+</span> f3A <span class="op">+</span> f4A<span class="op">}</span> sq<span class="op">.</span> <span class="fu">in</span><span class="op">.&lt;/</span>td<span class="op">&gt;</span></span>
+<span id="cb1-55"><a href="#cb1-55"></a>    <span class="op">&lt;</span>td <span class="kw">class</span><span class="op">=</span><span class="st">"tg-z6f0"</span><span class="op">&gt;</span>$<span class="op">{(</span>fT <span class="op">/</span> <span class="dv">144</span><span class="op">).</span><span class="fu">toLocaleString</span><span class="op">(</span>undefined<span class="op">,</span> <span class="op">{</span>maximumFractionDigits<span class="op">:</span> <span class="dv">2</span><span class="op">})}</span> sq<span class="op">.</span> <span class="fu">ft</span><span class="op">.&lt;/</span>td<span class="op">&gt;</span></span>
+<span id="cb1-56"><a href="#cb1-56"></a>  <span class="op">&lt;/</span>tr<span class="op">&gt;</span></span>
+<span id="cb1-57"><a href="#cb1-57"></a><span class="op">&lt;/</span>tbody<span class="op">&gt;</span></span>
+<span id="cb1-58"><a href="#cb1-58"></a><span class="op">&lt;/</span>table<span class="op">&gt;&lt;/</span>div<span class="op">&gt;</span>`</span>
+<span id="cb1-59"><a href="#cb1-59"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+OJS Syntax Error (line 34, column 27)Assigning to rvalue
 </div>
 </div>
- <!-- /main -->
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -475,6 +410,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   } else {
     toggleColorMode(false);
   }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
